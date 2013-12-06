@@ -8,7 +8,7 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
-@Table(name = "CUser")
+@Table(name = "CUsers")
 public class CUser extends Model implements Serializable {
 
 	public String getUserProfileImageBitmapURI() {
@@ -24,8 +24,12 @@ public class CUser extends Model implements Serializable {
 	 */
 	private static final long serialVersionUID = -5615313632792984879L;
 
+	@Table(name = "CFielsds")
 	public class CFielsd {
+		@Column(name = "MName")
 		public String mName;
+		
+		@Column(name = "MValue")
 		public String mValue;
 	}
 	
@@ -57,6 +61,7 @@ public class CUser extends Model implements Serializable {
 	@Column(name = "MGender")
 	public gender mGender;
 	
+	@Column(name = "MFields")
 	public List<CFielsd> mFields = new ArrayList<CFielsd>();
 	
 }
