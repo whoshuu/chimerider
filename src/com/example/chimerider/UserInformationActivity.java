@@ -12,19 +12,24 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.chimerider.information.CUser;
+import com.example.chimerider.util.ImageUtility;
+
 public class UserInformationActivity extends Activity {
 
 	private ImageView ivProfileImage;
+	private CUser user;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_information);
-		
-//		ActionBar ab = getActionBar();
-//		ab.setTitle("User Information");
-		
 		ivProfileImage = (ImageView) findViewById(R.id.ivProfilePicture);
+		user = (CUser) getIntent().getSerializableExtra("user");
+		if (user == null) {
+			user = new CUser();
+		}
+		
 	}
 
 	@Override
@@ -71,8 +76,8 @@ public class UserInformationActivity extends Activity {
 				Bundle extras = imageReturnedIntent.getExtras();
 				Bitmap bitmap = (Bitmap) extras.get("data");
 				ivProfileImage.setImageBitmap(bitmap);
-//				currentUserSettings.setUserProfileImageBitmapURI(ImageUtility.getRealPathFromURI(ImageUtility.getImageUri(this, bitmap), this));
-//				currentUserSettings.save();
+				user.setUserProfileImageBitmapURI(ImageUtility.getRealPathFromURI(ImageUtility.getImageUri(this, bitmap), this));
+				user.save();
 			}
 
 			break; 
@@ -80,8 +85,8 @@ public class UserInformationActivity extends Activity {
 			if(resultCode == RESULT_OK){  
 				Uri selectedImage = imageReturnedIntent.getData();
 				ivProfileImage.setImageURI(selectedImage);
-//				currentUserSettings.setUserProfileImageBitmapURI(ImageUtility.getRealPathFromURI(selectedImage, this));
-//				currentUserSettings.save();
+				user.setUserProfileImageBitmapURI(ImageUtility.getRealPathFromURI(selectedImage, this));
+				user.save();
 			}
 			break;
 		}
