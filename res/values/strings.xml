@@ -7,4 +7,6 @@
     <string name="title_activity_user_information">UserInformationActivity</string>
     <string name="menu_map">Map</string>
     <string name="menu_stats">Stats</string>
+    <string name="contact_list_new_contact">New Contact</string>
+
 </resources>
