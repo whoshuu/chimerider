@@ -1,9 +1,28 @@
 package com.example.chimerider.information;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CUser {
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+
+@Table(name = "CUser")
+public class CUser extends Model implements Serializable {
+
+	public String getUserProfileImageBitmapURI() {
+		return userProfileImageBitmapURI;
+	}
+
+	public void setUserProfileImageBitmapURI(String userProfileImageBitmapURI) {
+		this.userProfileImageBitmapURI = userProfileImageBitmapURI;
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5615313632792984879L;
 
 	public class CFielsd {
 		public String mName;
@@ -26,10 +45,16 @@ public class CUser {
 		public abstract String getDescription();
 	};
 	
-	// TODO Rolan add the image thing around here!!
+	@Column(name = "UserProfileImageBitmapURI")
+	public String userProfileImageBitmapURI;
 	
+	@Column(name = "MName")
 	public String mName;
+	
+	@Column(name = "MId")
 	public int mId;
+	
+	@Column(name = "MGender")
 	public gender mGender;
 	
 	public List<CFielsd> mFields = new ArrayList<CFielsd>();
