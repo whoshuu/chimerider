@@ -1,8 +1,12 @@
 package com.example.chimerider;
 
-import android.os.Bundle;
+import com.example.chimerider.information.CContactListActivity;
+
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 
 public class MainActivity extends Activity {
 
@@ -19,4 +23,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	public void showContactList(View v) {
+		Intent i = new Intent(this, CContactListActivity.class);
+		startActivity(i);
+	}
 }

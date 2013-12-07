@@ -3,8 +3,10 @@ package com.example.chimerider.information;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.activeandroid.query.Select;
+
 public class CUserManager {
-	public static List<CUser> mUsers = new ArrayList<CUser>();
+	private static List<CUser> mUsers = new ArrayList<CUser>();
 	
 	public static CUser getUser(int idx) {
 		if(mUsers == null || mUsers.size() <= 0) {
@@ -14,5 +16,11 @@ public class CUserManager {
 		return mUsers.get(idx);
 	}
 	
-	// TODO Rolan populate the array from the DB
+	public static List<CUser> getUsers() {
+		if (mUsers.size() == 0) {
+			mUsers = new Select().from(CUser.class).execute();
+		}
+		
+		return mUsers;
+	}
 }

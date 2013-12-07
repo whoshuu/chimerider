@@ -26,6 +26,12 @@
             android:name="com.example.chimerider.UserInformationActivity"
             android:label="@string/title_activity_user_information" >
         </activity>
+        <activity
+            android:name="com.example.chimerider.information.CContactListActivity"
+            android:label="@string/title_activity_user_information" >
+        </activity>
+        
+        
     </application>
 
 </manifest>

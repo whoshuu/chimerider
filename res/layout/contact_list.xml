@@ -25,6 +25,7 @@
     	android:layout_height="wrap_content"
     	android:layout_alignParentBottom="true"
     	android:text="@string/contact_list_new_contact"
+    	android:onClick="createNewContact"
         />
 
 </RelativeLayout>

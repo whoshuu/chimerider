@@ -1,14 +1,13 @@
 package com.example.chimerider.information;
 
-import com.example.chimerider.R;
-
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -16,8 +15,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.chimerider.R;
+
 public class CContactListActivity extends Activity {
 
+	private static final int EDIT_EXISTING_CONTACT_REQUEST = 1;
+	private static final int CREATE_NEW_CONTACT_REQUEST = 0;
 	ListView mContactsList;
 	Button mNewButton;
 	
@@ -38,7 +41,7 @@ public class CContactListActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				CUser newUser = new CUser();
-				CUserManager.mUsers.add(newUser);
+				CUserManager.getUsers().add(newUser);
 				selectUser(newUser);	
 			}
 		});
@@ -80,8 +83,10 @@ public class CContactListActivity extends Activity {
 			
 			@Override
 			public int getCount() {
-				return CUserManager.mUsers.size();
+				return CUserManager.getUsers().size();
 			}
+			
+			
 		});
 	    
 	    mContactsList.setOnItemClickListener(new OnItemClickListener() {
@@ -100,4 +105,27 @@ public class CContactListActivity extends Activity {
 		
 		// TODO Rolan call the new layout activity here
 	}
+	
+	public void createNewContact(View v) {
+		Intent i = new Intent();
+		startActivityForResult(i, CREATE_NEW_CONTACT_REQUEST);
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) { 
+		super.onActivityResult(requestCode, resultCode, data); 
+		switch(requestCode) {
+		case CREATE_NEW_CONTACT_REQUEST:
+			if(resultCode == RESULT_OK){  
+				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
+			}
+			break; 
+		case EDIT_EXISTING_CONTACT_REQUEST:
+			if(resultCode == RESULT_OK){  
+				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
+			}
+			break;
+		}
+	}
+	
+	
 }

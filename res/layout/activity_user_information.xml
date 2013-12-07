@@ -51,7 +51,7 @@
             android:src="@drawable/ic_user" />
 
         <EditText
-            android:id="@+id/etProfileName"
+            android:id="@+id/etUserName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -61,22 +61,21 @@
             android:ems="10"
             android:hint="Name" />
 
-        <EditText
-            android:id="@+id/EditText01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/ivProfilePicture"
-            android:layout_alignLeft="@+id/etProfileName"
-            android:layout_alignRight="@+id/etProfileName"
-            android:ems="10"
-            android:hint="Gender" />
-
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+            android:onClick="saveData"
             android:text="Save" />
+
+        <Spinner
+            android:id="@+id/spGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/etUserName"
+            android:layout_below="@+id/etUserName" 
+            android:entries="@array/gender_items"/>
     
 </RelativeLayout>
