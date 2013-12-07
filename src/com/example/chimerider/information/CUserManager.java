@@ -18,9 +18,13 @@ public class CUserManager {
 	
 	public static List<CUser> getUsers() {
 		if (mUsers.size() == 0) {
-			mUsers = new Select().from(CUser.class).execute();
+			refreshUserList();
 		}
 		
 		return mUsers;
+	}
+
+	public static void refreshUserList() {
+		mUsers = new Select().from(CUser.class).execute();
 	}
 }

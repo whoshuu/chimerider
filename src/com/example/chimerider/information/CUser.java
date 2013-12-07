@@ -11,8 +11,8 @@ import com.activeandroid.annotation.Table;
 @Table(name = "CUser")
 public class CUser extends Model implements Serializable {
 
-public enum Gender {
-		
+	public enum Gender {
+
 		notavailable {
 
 			@Override
@@ -50,23 +50,31 @@ public enum Gender {
 		public abstract String getDescription();
 		public abstract int getPosition();
 	};
-	
+
 	@Column(name = "UserProfileImageBitmapURI")
 	public String userProfileImageBitmapURI;
-	
+
 	@Column(name = "Name")
 	public String name;
-	
+
 	@Column(name = "UserId")
 	public int userId;
 
 	@Column(name = "Gender")
 	public Gender gender = Gender.notavailable;
-	
+
 	@Column(name = "MFields")
 	public List<CField> mFields = new ArrayList<CField>();
 
-	
+
+	public List<CField> getmFields() {
+		return mFields;
+	}
+
+	public void setmFields(List<CField> mFields) {
+		this.mFields = mFields;
+	}
+
 	/**
 	 * 
 	 */
