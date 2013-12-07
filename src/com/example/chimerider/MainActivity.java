@@ -1,10 +1,14 @@
 package com.example.chimerider;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
+import android.view.View;
 
-public class MainActivity extends Activity {
+import com.example.chimerider.information.CContactListActivity;
+
+public class MainActivity extends FragmentActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,4 +23,8 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	public void showContactList(View v) {
+		Intent i = new Intent(this, CContactListActivity.class);
+		startActivity(i);
+	}
 }

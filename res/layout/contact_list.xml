@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res/com.example.chimerider.information"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    
+    <com.example.chimerider.information.MenuBarView
+        android:id="@+id/contact_list_menu_bar"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+        />
+    
+    <ListView 
+        android:id="@+id/contact_list_contacts"
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@id/contact_list_menu_bar"
+        />
+    
+    <Button
+        android:id="@+id/contact_list_new_contact" 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true"
+    	android:text="@string/contact_list_new_contact"
+    	android:onClick="createNewContact"
+        />
+
+</RelativeLayout>
