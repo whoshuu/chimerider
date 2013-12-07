@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content" 
-	android:orientation="horizontal"
-	android:background="@drawable/bonuspack_bubble" >
+	android:orientation="horizontal" >
+	
+    <ImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        />
+    
+    <ImageView
+        android:id="@+id/btnVillage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:contentDescription=""
+        android:layout_alignParentRight="true"/>
+        
+    
 	<ImageView android:id="@+id/bubble_image" 
 		android:layout_width="65dp"
 		android:layout_height="65dp" 
@@ -12,7 +28,8 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content" 
 		android:paddingLeft="5dp"
-		android:orientation="vertical" >
+		android:orientation="vertical"
+		android:visibility="gone" >
 		<LinearLayout 
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content" 
@@ -48,5 +65,6 @@
 			android:maxEms="17"
 			android:text="Address"
 			android:visibility="gone" />
+		
 	</LinearLayout>
-</LinearLayout>
+</RelativeLayout>
