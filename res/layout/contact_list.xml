@@ -22,11 +22,40 @@
     	android:layout_height="wrap_content"
     	android:layout_below="@id/contact_list_new_contact"
         />
-    
-    <ListView
-        android:id="@+id/contact_list_contacts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/contact_list_menu_bar" />
 
+    <ImageView
+        android:id="@+id/ivPatientsStats"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/contact_list_menu_bar"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/patients_stats" />
+    
+    <TextView
+        android:id="@+id/tvContactListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/ivPatientsStats"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:text="PATIENTS"
+        style="?android:listSeparatorTextViewStyle"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+     <ListView
+         android:id="@+id/contact_list_contacts"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="2dp"
+         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+         android:layout_below="@+id/tvContactListTitle" />
+     
 </RelativeLayout>

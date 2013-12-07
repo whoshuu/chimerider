@@ -33,6 +33,7 @@ public class CContactListActivity extends Activity {
 	ListView mContactsList;
 	Button mNewButton;
 	MenuBarView mMenuBar;
+	TextView tvContactListTitle;
 	
 	public CContactListActivity() {
 						
@@ -43,9 +44,13 @@ public class CContactListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.contact_list);
 	    
+	    
 	    mContactsList = (ListView)findViewById(R.id.contact_list_contacts);
 	    mNewButton = (Button)findViewById(R.id.contact_list_new_contact);
 	    mMenuBar = (MenuBarView)findViewById(R.id.contact_list_menu_bar); 
+	    
+	    tvContactListTitle = (TextView)findViewById(R.id.tvContactListTitle);
+	    tvContactListTitle.setTextColor(Color.parseColor("#CCCCCC"));
 	    
 	    mMenuBar.setClickListener(new MenuBarViewListener() {
 			

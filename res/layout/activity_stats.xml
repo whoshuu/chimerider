@@ -47,24 +47,15 @@
     </ListView>
 
     <TextView
-        android:id="@+id/tvCat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/llStats"
-        android:layout_marginTop="0dp"
-        android:text="November Mileage"
-        android:textSize="25sp" 
-        android:textStyle="bold"/>
-
-    <TextView
         android:id="@+id/tvCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
         android:layout_alignBaseline="@+id/tvCat"
         android:layout_alignBottom="@+id/tvCat"
         android:layout_alignRight="@+id/lvMotorInfo"
-        android:textSize="25sp" 
+        android:textSize="34sp"
+        android:textColor="#ff6600"
         android:text="835" />
 
     <TextView
@@ -74,7 +65,19 @@
         android:layout_alignLeft="@+id/lvMotorInfo"
         android:layout_below="@+id/tvCountry"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="16dp"
         android:text="VEHICLE HEALTH"
         android:textColor="#A9A9A9" />
+
+    <TextView
+        android:id="@+id/tvCat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvPopulation"
+        android:layout_below="@+id/llStats"
+        android:layout_marginTop="26dp"
+        android:text="November Mileage"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="bold" />
 
 </RelativeLayout>
