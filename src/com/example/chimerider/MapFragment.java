@@ -1,6 +1,7 @@
 package com.example.chimerider;
 
 
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.util.ResourceProxyImpl;
 import org.osmdroid.views.MapView;
@@ -17,6 +18,7 @@ public class MapFragment extends Fragment {
 	public View onCreateView(LayoutInflater inf, ViewGroup parent, Bundle savedInstanceState ) {
 		ResourceProxyImpl mResourceProxy = new ResourceProxyImpl(getActivity());
         MapView mapView = new MapView(getActivity(), 256, mResourceProxy);
+        mapView.setTileSource(TileSourceFactory.MAPQUESTOSM);
         mapView.setClickable(true);
         mapView.setUseDataConnection(false);
         mapView.setBuiltInZoomControls(true);
