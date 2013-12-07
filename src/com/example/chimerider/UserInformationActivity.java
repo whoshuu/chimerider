@@ -132,6 +132,8 @@ public class UserInformationActivity extends Activity {
 				CField field = (CField)mDynamicFields.getAdapter().getItem(arg2);
 				if(field == null) {
 					field = new CField();
+					//save it into a temporary field
+					user.getmFields().add(field);
 				}
 				final CField finalF = field;
 				EditField ef = new EditField(mCurrent, new EditFieldCallback() {
@@ -145,8 +147,6 @@ public class UserInformationActivity extends Activity {
 						finalF.mName = fieldName;
 						finalF.mValue = fieldValue;
 						finalF.cuser = user;
-						//save it into a temporary field
-						user.getmFields().add(finalF);
 						BaseAdapter a =(BaseAdapter)mDynamicFields.getAdapter();
 						a.notifyDataSetChanged();
 					}
