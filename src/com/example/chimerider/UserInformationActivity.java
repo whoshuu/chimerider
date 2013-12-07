@@ -29,6 +29,7 @@ import com.example.chimerider.util.ImageUtility;
 
 public class UserInformationActivity extends Activity {
 
+	public static final String CONTACT_OBJECT_KEY = "CONTACT_OBJECT_KEY";
 	private ImageView ivProfileImage;
 	private CUser user;
 	private EditText etName;
@@ -195,15 +196,12 @@ public class UserInformationActivity extends Activity {
 	}
 
 	public void saveData(View v) {
-//		if (spGender.getSelectedItemPosition() == 0) {
-//			user.gender = gender.femenine;
-//		} else {
-//			user.gender = gender.masculine;
-//		}
 		user.name = etName.getText().toString();
+		user.gender = spGender.getSelectedItem().toString();
 		user.save();
 		
 		Intent result = new Intent(this, CContactListActivity.class);
+		result.putExtra(CONTACT_OBJECT_KEY, user);
 		setResult(RESULT_OK, result);
 		finish();
 	}
