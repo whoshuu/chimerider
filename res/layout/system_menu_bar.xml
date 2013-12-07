@@ -22,7 +22,8 @@
         android:background="@drawable/btn_tab_states"
         />
     
-    <View
+    <Button
+        android:id="@+id/menubar_users"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

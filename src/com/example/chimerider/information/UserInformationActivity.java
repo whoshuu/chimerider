@@ -1,4 +1,4 @@
-package com.example.chimerider;
+package com.example.chimerider.information;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,16 +18,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.chimerider.information.CContactListActivity;
-import com.example.chimerider.information.CField;
-import com.example.chimerider.information.CUser;
-import com.example.chimerider.information.CUserManager;
-import com.example.chimerider.information.EditField;
+import com.example.chimerider.R;
 import com.example.chimerider.information.EditField.EditFieldCallback;
 import com.example.chimerider.util.ImageUtility;
 import com.example.chimerider.util.ModifiableLinearLayout;

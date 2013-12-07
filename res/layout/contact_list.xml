@@ -15,7 +15,7 @@
     	android:background="@drawable/btn_tab_states"
         />
     
-    <com.example.chimerider.information.MenuBarView
+    <com.example.chimerider.util.MenuBarView
         android:id="@+id/contact_list_menu_bar"
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"
