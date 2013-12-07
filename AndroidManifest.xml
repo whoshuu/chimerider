@@ -29,7 +29,7 @@
         </activity>
         <activity
             android:name="com.example.chimerider.information.CContactListActivity"
-            android:label="@string/title_activity_user_information" >
+            android:label="@string/title_activity_contact_list" >
         </activity>
         
         

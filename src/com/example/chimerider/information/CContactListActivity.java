@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 
 import com.example.chimerider.R;
 import com.example.chimerider.UserInformationActivity;
+import com.example.chimerider.R.id;
+import com.example.chimerider.R.layout;
 
 public class CContactListActivity extends Activity {
 
@@ -43,7 +46,8 @@ public class CContactListActivity extends Activity {
 			public void onClick(View v) {
 				CUser newUser = new CUser();
 				CUserManager.getUsers().add(newUser);
-				selectUser(newUser);	
+				Intent i = new Intent(getApplicationContext(), UserInformationActivity.class);
+				startActivityForResult(i, CREATE_NEW_CONTACT_REQUEST);
 			}
 		});
 	    
@@ -108,11 +112,6 @@ public class CContactListActivity extends Activity {
 		// TODO Rolan call the new layout activity here
 	}
 	
-	public void createNewContact(View v) {
-		Intent i = new Intent(this, UserInformationActivity.class);
-		startActivityForResult(i, CREATE_NEW_CONTACT_REQUEST);
-	}
-
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) { 
 		super.onActivityResult(requestCode, resultCode, data); 
 		switch(requestCode) {
