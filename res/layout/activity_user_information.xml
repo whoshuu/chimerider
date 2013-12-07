@@ -41,18 +41,24 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
 			android:layout_alignParentRight="true"             
-            android:background="@drawable/camera_icon"
             android:layout_marginRight="20dp" 
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:padding="2dp"
             >
 	        	<ImageView
 	        	    android:id="@+id/ivChangePicture"
 	        	    android:layout_width="30dp"
             		android:layout_height="30dp"
-	            	android:background="@drawable/ic_action_picture"
+	            	android:background="@drawable/camera"
 	            	android:onClick="changePicture"
-	            />    
+	            />
+	        	
+	        	<ImageView
+	        	    android:id="@+id/ivChangeVoice"
+	        	    android:layout_width="30dp"
+            		android:layout_height="30dp"
+	            	android:background="@drawable/mic"
+	            />
         </LinearLayout>
         </RelativeLayout>
         <ImageView
