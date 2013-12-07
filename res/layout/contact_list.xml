@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/contact_list_new_contact"
-        android:layout_below="@id/contact_list_menu_bar" />
+        android:layout_below="@id/contact_list_menu_bar"
+         />
     
     <Button
         android:id="@+id/contact_list_new_contact" 
