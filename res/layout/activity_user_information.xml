@@ -79,10 +79,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button1"
-            android:layout_below="@+id/tvSymptoms"
-            android:layout_marginBottom = "20dp"
-            android:layout_marginTop = "20dp"
-            android:layout_centerHorizontal="true" >
+            android:layout_below="@+id/ivProfilePicture"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp" >
 
         </ListView>
         
@@ -96,16 +96,5 @@
             android:layout_marginTop ="10dp"
             android:onClick="saveData"
             android:text="Save" />
-
-        <EditText
-            android:id="@+id/tvSymptoms"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignLeft="@+id/ivProfilePicture"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/ivProfilePicture"
-            android:layout_marginTop="10dp"
-            android:hint="Medical Symptoms"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
