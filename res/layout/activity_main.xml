@@ -27,5 +27,12 @@
         android:layout_marginTop="31dp"
         android:text="Stats"
         android:onClick="onStats" />
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.chimerider.MapFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>

@@ -10,6 +10,10 @@ import com.activeandroid.annotation.Table;
 
 @Table(name = "CUser")
 public class CUser extends Model implements Serializable {
+	
+	public CUser() {
+		
+	}
 
 	public enum Gender {
 
