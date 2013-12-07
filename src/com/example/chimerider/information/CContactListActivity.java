@@ -17,14 +17,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.chimerider.MainActivity;
 import com.example.chimerider.R;
+import com.example.chimerider.StatsActivity;
 import com.example.chimerider.information.CUser.Gender;
+import com.example.chimerider.util.MenuBarView;
+import com.example.chimerider.util.MenuBarView.MenuBarViewListener;
 
 public class CContactListActivity extends Activity {
 
 	private static final int CREATE_EDIT_CONTACT_REQUEST = 0;
 	ListView mContactsList;
 	Button mNewButton;
+	MenuBarView mMenuBar;
 	
 	public CContactListActivity() {
 						
@@ -37,6 +42,44 @@ public class CContactListActivity extends Activity {
 	    
 	    mContactsList = (ListView)findViewById(R.id.contact_list_contacts);
 	    mNewButton = (Button)findViewById(R.id.contact_list_new_contact);
+	    mMenuBar = (MenuBarView)findViewById(R.id.contact_list_menu_bar); 
+	    
+	    mMenuBar.setClickListener(new MenuBarViewListener() {
+			
+			@Override
+			public void onUserClick() {
+				return;
+			}
+			
+			@Override
+			public void onStatsClick() {
+				Intent i = new Intent(getBaseContext(), StatsActivity.class);
+				startActivity(i);
+				finish();
+			}
+			
+			@Override
+			public void onMapClick() {
+				Intent i = new Intent(getBaseContext(), MainActivity.class);
+				startActivity(i);
+				finish();
+			}
+			
+			@Override
+			public boolean isUserActive() {
+				return false;
+			}
+			
+			@Override
+			public boolean isStatsActive() {
+				return true;
+			}
+			
+			@Override
+			public boolean isMapActive() {
+				return true;
+			}
+		});
 	    
 	    mNewButton.setOnClickListener(new OnClickListener() {
 			
