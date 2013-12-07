@@ -7,22 +7,25 @@
     <Button
         android:id="@+id/menubar_map"
         android:text="@string/menu_map" 
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="@drawable/btn_tab_states"
         />
 
     <Button
         android:id="@+id/menubar_stats"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/menu_stats"
+        android:layout_weight="1" 
         android:background="@drawable/btn_tab_states"
         />
     
     <View
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="@drawable/white_rectangle" 
         />
 

@@ -37,7 +37,7 @@ public class MenuBarView extends LinearLayout {
 	
 	void initialize(Context context) {
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View v = inflater.inflate(R.layout.system_menu_bar, this, false);
+		View v = inflater.inflate(R.layout.system_menu_bar, this, true);
 		
 		mMap = (Button)v.findViewById(R.id.menubar_map);
 		mStats = (Button)v.findViewById(R.id.menubar_stats);
