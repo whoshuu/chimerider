@@ -26,13 +26,15 @@ import android.widget.TextView;
 import com.example.chimerider.information.CContactListActivity;
 import com.example.chimerider.information.CField;
 import com.example.chimerider.information.CUser;
+import com.example.chimerider.information.CUser.Gender;
+import com.example.chimerider.information.CUserManager;
 import com.example.chimerider.information.EditField;
 import com.example.chimerider.information.EditField.EditFieldCallback;
 import com.example.chimerider.util.ImageUtility;
 
 public class UserInformationActivity extends Activity {
 
-	public static final String CONTACT_OBJECT_KEY = "CONTACT_OBJECT_KEY";
+	public static final String CONTACT_OBJECT_INDEX_KEY = "CONTACT_OBJECT_INDEX_KEY";
 	private ImageView ivProfileImage;
 	private CUser user;
 	private EditText etName;
@@ -42,6 +44,7 @@ public class UserInformationActivity extends Activity {
 	
 	protected RelativeLayout mMainLayout;
 	private Activity mCurrent;
+	private boolean isCreateMode = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +54,21 @@ public class UserInformationActivity extends Activity {
 		etName = (EditText) findViewById(R.id.etUserName);
 		spGender = (Spinner) findViewById(R.id.spGender);
 		
-		user = (CUser) getIntent().getSerializableExtra("user");
-		if (user == null) {
+		int positionToWork = getIntent().getIntExtra(CONTACT_OBJECT_INDEX_KEY, 0);
+		
+		if (positionToWork >= CUserManager.getUsers().size()) {
 			user = new CUser();
+			isCreateMode = true;
+		} else {
+			user =  CUserManager.getUsers().get(positionToWork);
 		}
+		
+		etName.setText(user.name);
+		spGender.setSelection(user.getGender());
+		if(user.getUserProfileImageBitmapURI() != null) {
+			ivProfileImage.setImageURI(Uri.parse(user.getUserProfileImageBitmapURI()));
+		}
+		
 		mCurrent = this;
 		mDynamicFields = (ListView) findViewById(R.id.user_information_dynamic_fields_view);
 		mMainLayout = (RelativeLayout) findViewById(R.id.activity_user_information);
@@ -200,11 +214,14 @@ public class UserInformationActivity extends Activity {
 
 	public void saveData(View v) {
 		user.name = etName.getText().toString();
-		user.gender = spGender.getSelectedItem().toString();
+		user.gender = Gender.values()[spGender.getSelectedItemPosition()];
 		user.save();
 		
+		if (isCreateMode) {
+			CUserManager.getUsers().add(user);
+		}
+		
 		Intent result = new Intent(this, CContactListActivity.class);
-		result.putExtra(CONTACT_OBJECT_KEY, user);
 		setResult(RESULT_OK, result);
 		finish();
 	}

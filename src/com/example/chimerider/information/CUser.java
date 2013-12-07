@@ -11,6 +11,46 @@ import com.activeandroid.annotation.Table;
 @Table(name = "CUser")
 public class CUser extends Model implements Serializable {
 
+public enum Gender {
+		
+		notavailable {
+
+			@Override
+			public String getDescription() {
+				return "Not Available";
+			}
+
+			@Override
+			public int getPosition() {
+				return 0;
+			}
+		},
+		femenine {
+			@Override
+			public String getDescription() {
+				return "Female";
+			}
+
+			@Override
+			public int getPosition() {
+				return 1;
+			}
+		},
+		masculine {
+			@Override
+			public String getDescription() {
+				return "Male";
+			}
+
+			@Override
+			public int getPosition() {
+				return 2;
+			}
+		};		
+		public abstract String getDescription();
+		public abstract int getPosition();
+	};
+	
 	@Column(name = "UserProfileImageBitmapURI")
 	public String userProfileImageBitmapURI;
 	
@@ -21,7 +61,7 @@ public class CUser extends Model implements Serializable {
 	public int userId;
 
 	@Column(name = "Gender")
-	public String gender;
+	public Gender gender = Gender.notavailable;
 	
 	@Column(name = "MFields")
 	public List<CField> mFields = new ArrayList<CField>();
@@ -60,12 +100,14 @@ public class CUser extends Model implements Serializable {
 		this.userId = userId;
 	}
 
-	public String getGender() {
-		return gender;
+
+	public int getGender() {
+		return gender.getPosition();
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	@SuppressWarnings("static-access")
+	public void setGender(int _gender) {
+		this.gender = gender.values()[_gender];
 	}
 
 	public CField cerateNewField() {
@@ -73,22 +115,4 @@ public class CUser extends Model implements Serializable {
 		mFields.add(field);
 		return field;
 	}
-	
-	//	public enum gender {
-	//	femenine {
-	//		@Override
-	//		public String getDescription() {
-	//			return "femenine";
-	//		}
-	//	},
-	//	masculine {
-	//		@Override
-	//		public String getDescription() {
-	//			return "masculine";
-	//		}
-	//	};		
-	//	public abstract String getDescription();
-	//};
-
-
 }

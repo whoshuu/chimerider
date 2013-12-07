@@ -23,8 +23,7 @@ import com.example.chimerider.R.layout;
 
 public class CContactListActivity extends Activity {
 
-	private static final int EDIT_EXISTING_CONTACT_REQUEST = 1;
-	private static final int CREATE_NEW_CONTACT_REQUEST = 0;
+	private static final int CREATE_EDIT_CONTACT_REQUEST = 0;
 	ListView mContactsList;
 	Button mNewButton;
 	
@@ -44,8 +43,7 @@ public class CContactListActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(getApplicationContext(), UserInformationActivity.class);
-				startActivityForResult(i, CREATE_NEW_CONTACT_REQUEST);
+				selectUser(CUserManager.getUsers().size());
 			}
 		});
 	    
@@ -65,8 +63,11 @@ public class CContactListActivity extends Activity {
 					v = arg1;
 				}
 								
-				((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(CUserManager.getUser(arg0).name);
-				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).gender);
+				CUser user = CUserManager.getUser(arg0);
+				if (user != null) {
+					((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(user.name);
+					((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(user.gender.getDescription());
+				}
 				
 				return v;
 			}
@@ -75,8 +76,6 @@ public class CContactListActivity extends Activity {
 			public long getItemId(int arg0) {
 				if(CUserManager.getUser(arg0) == null)
 					return -1;
-				
-//				return CUserManager.getUser(arg0).id;
 				return 0;
 			}
 			
@@ -98,34 +97,25 @@ public class CContactListActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				selectUser(CUserManager.getUser(arg2));				
+				selectUser(arg2);				
 			}
 		});
 	}
 
-	public void selectUser(CUser user) {
-		if(user == null)
-			return;
-		
-		// TODO Rolan call the new layout activity here
+	public void selectUser(int userPosition) {
+		Intent i = new Intent(getApplicationContext(), UserInformationActivity.class);
+		i.putExtra(UserInformationActivity.CONTACT_OBJECT_INDEX_KEY, userPosition);
+		startActivityForResult(i, CREATE_EDIT_CONTACT_REQUEST);
 	}
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) { 
 		super.onActivityResult(requestCode, resultCode, data); 
 		switch(requestCode) {
-		case CREATE_NEW_CONTACT_REQUEST:
+		case CREATE_EDIT_CONTACT_REQUEST:
 			if(resultCode == RESULT_OK){  
-				CUser newUser = (CUser) data.getSerializableExtra(UserInformationActivity.CONTACT_OBJECT_KEY);
-				CUserManager.getUsers().add(newUser);
 				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
 			}
 			break; 
-		case EDIT_EXISTING_CONTACT_REQUEST:
-			if(resultCode == RESULT_OK){  
-				CUser updatedUser = (CUser) data.getSerializableExtra(UserInformationActivity.CONTACT_OBJECT_KEY);
-				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
-			}
-			break;
 		}
 	}
 	
