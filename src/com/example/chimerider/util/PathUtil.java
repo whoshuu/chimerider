@@ -13,11 +13,14 @@ import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.PathOverlay;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.view.MotionEvent;
 
 import com.example.chimerider.R;
+import com.example.chimerider.information.CContactListActivity;
 
 public class PathUtil {
 	public static ArrayList<Overlay> defaultRoads(Context context) {
@@ -134,9 +137,25 @@ public class PathUtil {
         return paths;
 	}
 	
-	public static Overlay defaultVillages(Context context, MapView map) {
-		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
-		ItemizedOverlayWithBubble<ExtendedOverlayItem> overlay = new ItemizedOverlayWithBubble<ExtendedOverlayItem>(context, new ArrayList<ExtendedOverlayItem>(), map);
+	public static Overlay defaultVillages(final Context context, MapView map) {
+		Drawable marker = context.getResources().getDrawable(R.drawable.house);
+		ItemizedOverlayWithBubble<ExtendedOverlayItem> overlay = new ItemizedOverlayWithBubble<ExtendedOverlayItem>(context, new ArrayList<ExtendedOverlayItem>(), map) {
+			boolean tapped = false;
+			@Override
+			public boolean onSingleTapConfirmed(MotionEvent event,
+					MapView mapView) {
+				// TODO Auto-generated method stub
+				if (!tapped) {
+					tapped = true;
+					return super.onSingleTapConfirmed(event, mapView);
+				} else {
+					Intent intent = new Intent(context, CContactListActivity.class);
+					intent.putExtra("village", 1);
+					context.startActivity(intent);
+					return false;
+				}
+			}
+		};
 				//new ItemizedOverlayWithBubble<OverlayItem>(
 				//new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
 		GeoPoint gp = new GeoPoint(-29.422567, 28.403135);
@@ -164,7 +183,7 @@ public class PathUtil {
 	}
 	
 	public static Overlay location1(Context context, MapView map) {
-		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
+		Drawable marker = context.getResources().getDrawable(R.drawable.dot);
 		ItemizedIconOverlay<OverlayItem> overlay = new ItemizedIconOverlay<OverlayItem>(new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
 		GeoPoint gp = new GeoPoint(-29.452567, 28.533135);
 		OverlayItem item = new OverlayItem(null, null, gp);
@@ -175,7 +194,7 @@ public class PathUtil {
 	}
 	
 	public static Overlay location2(Context context, MapView map) {
-		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
+		Drawable marker = context.getResources().getDrawable(R.drawable.dot);
 		ItemizedIconOverlay<OverlayItem> overlay = new ItemizedIconOverlay<OverlayItem>(new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
 		GeoPoint gp = new GeoPoint(-29.422567, 28.531135);
 		OverlayItem item = new OverlayItem(null, null, gp);
@@ -186,7 +205,7 @@ public class PathUtil {
 	}
 	
 	public static Overlay location3(Context context, MapView map) {
-		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
+		Drawable marker = context.getResources().getDrawable(R.drawable.dot);
 		ItemizedIconOverlay<OverlayItem> overlay = new ItemizedIconOverlay<OverlayItem>(new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
 		GeoPoint gp = new GeoPoint(-29.402567, 28.503135);
 		OverlayItem item = new OverlayItem(null, null, gp);
@@ -198,7 +217,7 @@ public class PathUtil {
 	
 
 	public static Overlay location4(Context context, MapView map) {
-		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
+		Drawable marker = context.getResources().getDrawable(R.drawable.dot);
 		ItemizedIconOverlay<OverlayItem> overlay = new ItemizedIconOverlay<OverlayItem>(new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
 
         GeoPoint gp = new GeoPoint(-29.362567, 28.483135);
@@ -236,7 +255,20 @@ public class PathUtil {
         rPath.addPoint(end);
 		return rPath;
 	}
-	
+
+	public static Overlay dconstructRoad1(Context context) {
+        PathOverlay rPath = new PathOverlay(Color.rgb(46, 185, 225), context);
+        GeoPoint end = new GeoPoint(-29.422567, 28.531135);
+		GeoPoint start = new GeoPoint(-29.452567, 28.533135);
+        Paint paint = rPath.getPaint();
+        paint.setStrokeWidth(4.0f);
+        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        rPath.setAlpha(100);
+        rPath.addPoint(start);
+        rPath.addPoint(end);
+		return rPath;
+	}
 
 	
 	public static Overlay constructRoad2(Context context) {
@@ -266,7 +298,21 @@ public class PathUtil {
         rPath.addPoint(end);
 		return rPath;
 	}
+
 	
+	public static Overlay dconstructRoad2(Context context) {
+        PathOverlay rPath = new PathOverlay(Color.rgb(46, 185, 225), context);
+        GeoPoint end = new GeoPoint(-29.402567, 28.503135);
+        GeoPoint start = new GeoPoint(-29.422567, 28.531135);
+        Paint paint = rPath.getPaint();
+        paint.setStrokeWidth(4.0f);
+        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        rPath.setAlpha(100);
+        rPath.addPoint(start);
+        rPath.addPoint(end);
+		return rPath;
+	}
 
 	public static Overlay constructRoad3(Context context) {
         PathOverlay path = new PathOverlay(Color.rgb(50, 50, 50), context);
@@ -295,4 +341,21 @@ public class PathUtil {
         rPath.addPoint(end);
 		return rPath;
 	}
+	
+
+	
+	public static Overlay dconstructRoad3(Context context) {
+        PathOverlay rPath = new PathOverlay(Color.rgb(46, 185, 225), context);
+        GeoPoint end = new GeoPoint(-29.362567, 28.483135);
+        GeoPoint start = new GeoPoint(-29.402567, 28.503135);
+        Paint paint = rPath.getPaint();
+        paint.setStrokeWidth(4.0f);
+        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        rPath.setAlpha(100);
+        rPath.addPoint(start);
+        rPath.addPoint(end);
+		return rPath;
+	}
+
 }
