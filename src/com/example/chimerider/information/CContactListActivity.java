@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.chimerider.R;
+import com.example.chimerider.UserInformationActivity;
 
 public class CContactListActivity extends Activity {
 
@@ -62,8 +63,8 @@ public class CContactListActivity extends Activity {
 					v = arg1;
 				}
 								
-				((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(CUserManager.getUser(arg0).mName);
-				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).mGender.getDescription());
+				((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(CUserManager.getUser(arg0).name);
+//				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).gender.getDescription());
 				
 				return null;
 			}
@@ -73,7 +74,8 @@ public class CContactListActivity extends Activity {
 				if(CUserManager.getUser(arg0) == null)
 					return -1;
 				
-				return CUserManager.getUser(arg0).mId;
+//				return CUserManager.getUser(arg0).id;
+				return 0;
 			}
 			
 			@Override
@@ -107,7 +109,7 @@ public class CContactListActivity extends Activity {
 	}
 	
 	public void createNewContact(View v) {
-		Intent i = new Intent();
+		Intent i = new Intent(this, UserInformationActivity.class);
 		startActivityForResult(i, CREATE_NEW_CONTACT_REQUEST);
 	}
 

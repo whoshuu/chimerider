@@ -1,12 +1,12 @@
 package com.example.chimerider;
 
-import com.example.chimerider.information.CContactListActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+
+import com.example.chimerider.information.CContactListActivity;
 
 public class MainActivity extends Activity {
 

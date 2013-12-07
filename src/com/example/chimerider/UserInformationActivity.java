@@ -16,8 +16,6 @@ import android.widget.Spinner;
 
 import com.example.chimerider.information.CContactListActivity;
 import com.example.chimerider.information.CUser;
-import com.example.chimerider.information.CUser.gender;
-import com.example.chimerider.information.CUserManager;
 import com.example.chimerider.util.ImageUtility;
 
 public class UserInformationActivity extends Activity {
@@ -103,12 +101,12 @@ public class UserInformationActivity extends Activity {
 	}
 
 	public void saveData(View v) {
-		if (spGender.getSelectedItemPosition() == 0) {
-			user.mGender = gender.femenine;
-		} else {
-			user.mGender = gender.masculine;
-		}
-		user.mName = etName.getText().toString();
+//		if (spGender.getSelectedItemPosition() == 0) {
+//			user.gender = gender.femenine;
+//		} else {
+//			user.gender = gender.masculine;
+//		}
+		user.name = etName.getText().toString();
 		user.save();
 		
 		Intent result = new Intent(this, CContactListActivity.class);
