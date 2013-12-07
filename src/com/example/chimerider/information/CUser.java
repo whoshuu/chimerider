@@ -61,7 +61,7 @@ public class CUser extends Model implements Serializable {
 	public int userId;
 
 	@Column(name = "Gender")
-	public Gender gender = Gender.notavailable;
+	public int gender = Gender.notavailable.getPosition();
 
 	@Column(name = "MFields")
 	public List<CField> mFields = new ArrayList<CField>();
@@ -110,11 +110,10 @@ public class CUser extends Model implements Serializable {
 
 
 	public int getGender() {
-		return gender.getPosition();
+		return gender;
 	}
 
-	@SuppressWarnings("static-access")
 	public void setGender(int _gender) {
-		this.gender = gender.values()[_gender];
+		this.gender = _gender;
 	}
 }

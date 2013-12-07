@@ -20,6 +20,7 @@ import com.example.chimerider.R;
 import com.example.chimerider.UserInformationActivity;
 import com.example.chimerider.R.id;
 import com.example.chimerider.R.layout;
+import com.example.chimerider.information.CUser.Gender;
 
 public class CContactListActivity extends Activity {
 
@@ -66,7 +67,7 @@ public class CContactListActivity extends Activity {
 				CUser user = CUserManager.getUser(arg0);
 				if (user != null) {
 					((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(user.name);
-					((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(user.gender.getDescription());
+					((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(Gender.values()[user.gender].getDescription());
 				}
 				
 				return v;
