@@ -16,4 +16,13 @@
         android:onClick="showContactList"
         android:text="Show Contacts" />
 
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.example.chimerider.MapFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        tools:layout="@layout/map_fragment" />
+
 </RelativeLayout>
