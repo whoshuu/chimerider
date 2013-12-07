@@ -70,7 +70,7 @@ public class CContactListActivity extends Activity {
 				((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(CUserManager.getUser(arg0).name);
 //				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).gender.getDescription());
 				
-				return null;
+				return v;
 			}
 			
 			@Override
@@ -117,12 +117,12 @@ public class CContactListActivity extends Activity {
 		switch(requestCode) {
 		case CREATE_NEW_CONTACT_REQUEST:
 			if(resultCode == RESULT_OK){  
-				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
+//				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
 			}
 			break; 
 		case EDIT_EXISTING_CONTACT_REQUEST:
 			if(resultCode == RESULT_OK){  
-				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
+//				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
 			}
 			break;
 		}
