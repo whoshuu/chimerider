@@ -18,6 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,7 +26,6 @@ import android.widget.TextView;
 import com.example.chimerider.information.CContactListActivity;
 import com.example.chimerider.information.CField;
 import com.example.chimerider.information.CUser;
-import com.example.chimerider.information.CUser.Gender;
 import com.example.chimerider.information.CUserManager;
 import com.example.chimerider.information.EditField;
 import com.example.chimerider.information.EditField.EditFieldCallback;
@@ -64,7 +64,7 @@ public class UserInformationActivity extends Activity {
 		etName.setText(user.name);
 		spGender.setSelection(user.getGender());
 		if(user.getUserProfileImageBitmapURI() != null) {
-			ivProfileImage.setImageURI(Uri.parse(user.getUserProfileImageBitmapURI()));
+			ivProfileImage.setImageURI(Uri.parse(user.getUserProfileImageBitmapURI())); 
 		}
 		
 		mCurrent = this;
