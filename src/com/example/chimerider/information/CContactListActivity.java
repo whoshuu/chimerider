@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -115,10 +116,16 @@ public class CContactListActivity extends Activity {
 								
 				CUser user = CUserManager.getUser(arg0);
 				if (user != null) {
-					((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(user.name);
+					TextView contactListName = ((TextView)v.findViewById(R.id.contacts_list_adaptor_name));
+					contactListName.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+					contactListName.setText(user.name);
+					contactListName.setTextColor(Color.parseColor("#333333"));
+					
 					if (user.createdDate != null) {
 						DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
-						((TextView)v.findViewById(R.id.contacts_list_adaptor_date_created)).setText(dateFormat.format(user.createdDate));
+						TextView dateCreated = ((TextView)v.findViewById(R.id.contacts_list_adaptor_date_created));
+						dateCreated.setText(dateFormat.format(user.createdDate));
+						dateCreated.setTextColor(Color.parseColor("#FF6600"));
 					}
 					
 					if(user.getUserProfileImageBitmapURI() != null) {
