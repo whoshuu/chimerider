@@ -90,9 +90,10 @@
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/user_information_dynamic_fields_view"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="4dp"
-            android:layout_centerHorizontal="true"
+            android:layout_alignRight="@+id/user_information_dynamic_fields_view"
+            android:layout_marginTop ="10dp"
             android:onClick="saveData"
             android:text="Save" />
 
