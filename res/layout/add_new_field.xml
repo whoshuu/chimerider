@@ -11,9 +11,20 @@
     	android:layout_height="wrap_content"
     	android:orientation="vertical"
     	android:layout_centerInParent="true" 
+    	android:background="#FFFFFFFF"
     	>
-    	
-        <TableRow >
+    	<TableRow
+		    android:gravity="right" 
+		    >
+			<Button
+		        android:id="@+id/close_add_new_field"
+		        android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="X"
+			    android:textColor="#FFFF0000"
+		        />		    
+		</TableRow>
+    	<TableRow >
 			<TextView
 			    android:layout_width="wrap_content"
 	    		android:layout_height="wrap_content"
@@ -25,6 +36,7 @@
 			    android:layout_width="wrap_content"
 	    		android:layout_height="wrap_content"
 	    		android:inputType="text"
+	    		android:minWidth="150dp"
 			    />
 		</TableRow>
 		
@@ -40,17 +52,18 @@
 			    android:layout_width="wrap_content"
 	    		android:layout_height="wrap_content"
 	    		android:inputType="text"
+	    		android:minWidth="150dp"
 			    />
 		</TableRow>
+		<TableRow
+		    android:gravity="center" 
+		    >
+			<Button
+		        android:id="@+id/save_new_field"
+		        android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="@string/new_field_save"
+		        />		    
+		</TableRow>
     </TableLayout>
-    
-    <Button
-        android:id="@+id/save_new_field"
-        android:layout_below="@id/table_component" 
-        android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="@string/new_field_save"
-	    android:layout_centerHorizontal="true"
-        />
-    
 </RelativeLayout>

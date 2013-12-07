@@ -31,6 +31,7 @@ import com.example.chimerider.information.CUserManager;
 import com.example.chimerider.information.EditField;
 import com.example.chimerider.information.EditField.EditFieldCallback;
 import com.example.chimerider.util.ImageUtility;
+import com.example.chimerider.util.ModifiableLinearLayout;
 
 public class UserInformationActivity extends Activity {
 
@@ -42,7 +43,7 @@ public class UserInformationActivity extends Activity {
 	
 	private ListView mDynamicFields;
 	
-	protected RelativeLayout mMainLayout;
+	protected ViewGroup mMainLayout;
 	private Activity mCurrent;
 	private boolean isCreateMode = false;
 	
@@ -71,7 +72,7 @@ public class UserInformationActivity extends Activity {
 		
 		mCurrent = this;
 		mDynamicFields = (ListView) findViewById(R.id.user_information_dynamic_fields_view);
-		mMainLayout = (RelativeLayout) findViewById(R.id.activity_user_information);
+		mMainLayout = (ViewGroup)findViewById(R.id.activity_user_information).getParent();
 		mDynamicFields.setAdapter(new BaseAdapter() {
 			
 			@Override
@@ -79,20 +80,22 @@ public class UserInformationActivity extends Activity {
 				if(user == null)
 					return null;
 				
-				final View v;
+				final ModifiableLinearLayout v;
 				
 				if(position >= user.mFields.size()) {
 					LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-					v = inflater.inflate(R.layout.create_new_attribute_button, parent, false);
+					v = (ModifiableLinearLayout)inflater.inflate(R.layout.create_new_attribute_button, parent, false);
+					v.mId = R.layout.create_new_attribute_button;
 				} else {
 					if(user.mFields.get(position) == null)
 						return null;
 					
-					if(convertView == null) {
+					if(convertView == null || ((ModifiableLinearLayout)convertView).mId != R.layout.contacts_list_adaptor) {
 						LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-						v = inflater.inflate(R.layout.contacts_list_adaptor, parent, false);
+						v = (ModifiableLinearLayout)inflater.inflate(R.layout.dynamic_field_adapter, parent, false);
+						v.mId = R.layout.dynamic_field_adapter;
 					} else {
-						v = convertView;
+						v = (ModifiableLinearLayout)convertView;
 					}
 					
 					// setup elements
@@ -131,18 +134,27 @@ public class UserInformationActivity extends Activity {
 					long arg3) {
 				CField field = (CField)mDynamicFields.getAdapter().getItem(arg2);
 				if(field == null) {
-					field = user.cerateNewField();
+					field = new CField();
 				}
 				final CField finalF = field;
 				EditField ef = new EditField(mCurrent, new EditFieldCallback() {
 					
 					@Override
 					public void onSave(final View v, final String field, final String value) {
+						mMainLayout.removeView(v);
+						if(field == null || field == "" || value == null || value == "") {
+							return;
+						}
 						finalF.mName = field;
 						finalF.mValue = value;
-						mMainLayout.removeView(v);
+						user.mFields.add(finalF);
 						BaseAdapter a =(BaseAdapter)mDynamicFields.getAdapter();
 						a.notifyDataSetChanged();
+					}
+
+					@Override
+					public void onClose(View v) {
+						mMainLayout.removeView(v);
 					}
 				}, finalF);
 				mMainLayout.addView(ef);

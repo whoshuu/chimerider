@@ -1,5 +1,7 @@
 package com.example.chimerider.information;
 
+import com.example.chimerider.R;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,12 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.example.chimerider.R;
-
 public class EditField extends LinearLayout {
 
 	public interface EditFieldCallback {
 		public abstract void onSave(final View v, final String field, final String value);
+		public abstract void onClose(View v);
 	}
 	
 	View mMasterView;
@@ -30,7 +31,7 @@ public class EditField extends LinearLayout {
 		
 		if(fields != null) {
 			mLabelView.setText(fields.mName);
-			mLabelView.setText(fields.mValue);
+			mValueView.setText(fields.mValue);
 		}
 		
 		Button b = (Button)findViewById(R.id.save_new_field);
@@ -39,6 +40,14 @@ public class EditField extends LinearLayout {
 			@Override
 			public void onClick(View v) {
 				callback.onSave(mMasterView, mLabelView.getText().toString(), mValueView.getText().toString());
+			}
+		});
+		
+		((Button)(findViewById(R.id.save_new_field))).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				callback.onClose(mMasterView);
 			}
 		});
 	}	

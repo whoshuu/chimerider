@@ -9,6 +9,7 @@
     android:clipToPadding="false"
     tools:context=".UserInformationActivity"
     android:id="@+id/activity_user_information" 
+    android:gravity="center"
     >
 
     

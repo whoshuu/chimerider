@@ -109,10 +109,4 @@ public enum Gender {
 	public void setGender(int _gender) {
 		this.gender = gender.values()[_gender];
 	}
-
-	public CField cerateNewField() {
-		CField field = new CField();
-		mFields.add(field);
-		return field;
-	}
 }
