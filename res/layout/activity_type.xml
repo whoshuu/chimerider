@@ -8,41 +8,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".UserActivity" >
 
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/btn_blue" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignBottom="@+id/imageButton1"
-        android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@+id/imageButton1"
-        android:src="@drawable/btn_blue" />
-
     <Button
         android:id="@+id/btnRide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/etMotorId"
-        android:layout_alignRight="@+id/imageButton2"
+        android:layout_alignRight="@+id/etMotorId"
         android:layout_below="@+id/etMotorId"
         android:layout_marginTop="20dp"
+        android:background="#696969"
         android:onClick="onRide"
-        android:text="Go for a Ride" />
+        android:text="Go for a Ride"
+        android:textColor="#FFFFFF" />
 
     <EditText
         android:id="@+id/etMotorId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/imangeButton1"
+        android:layout_alignRight="@+id/imageButton2"
         android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Enter Motorcycle ID" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/etMotorId"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/sample_button_background"
+         />
+
+    <ImageButton
+        android:id="@+id/imangeButton1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_above="@+id/etMotorId"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="2dp"
+        android:background="@drawable/button_background"/>
 
 </RelativeLayout>
