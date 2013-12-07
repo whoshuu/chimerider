@@ -43,7 +43,7 @@ public class EditField extends LinearLayout {
 			}
 		});
 		
-		((Button)(findViewById(R.id.save_new_field))).setOnClickListener(new OnClickListener() {
+		((Button)(findViewById(R.id.close_add_new_field))).setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
