@@ -24,11 +24,6 @@
         <activity
             android:name="com.example.chimerider.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.example.chimerider.UserInformationActivity"
@@ -38,8 +33,19 @@
             android:name="com.example.chimerider.information.CContactListActivity"
             android:label="@string/title_activity_contact_list" >
         </activity>
-        
-        
+        <activity
+            android:name="com.example.chimerider.StatsActivity"
+            android:label="@string/title_activity_stats" >
+        </activity>
+        <activity
+            android:name="com.example.chimerider.CountryActivity"
+            android:label="@string/title_activity_country" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
