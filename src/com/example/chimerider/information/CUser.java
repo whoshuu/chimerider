@@ -63,7 +63,7 @@ public class CUser extends Model implements Serializable {
 	public int gender = Gender.notavailable.getPosition();
 
 	//temporary fields not saved to db
-	private List<CField> mFields = new ArrayList<CField>();
+	public List<CField> mFields = new ArrayList<CField>();
 	
 	//actual fields saved to db
 	public List<CField> items() {

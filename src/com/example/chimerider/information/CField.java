@@ -19,6 +19,12 @@ public class CField extends Model {
 	public CField() {
 		super();
 	}
+	
+	public CField(String name, String value, CUser user) {
+		mName = name;
+		mValue = value;
+		cuser = user;
+	}
 
 	public String getmName() {
 		return mName;
