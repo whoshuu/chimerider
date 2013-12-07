@@ -44,7 +44,6 @@ public class UserInformationActivity extends Activity {
 	
 	protected RelativeLayout mMainLayout;
 	private Activity mCurrent;
-	private boolean isCreateMode = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +57,6 @@ public class UserInformationActivity extends Activity {
 		
 		if (positionToWork >= CUserManager.getUsers().size()) {
 			user = new CUser();
-			isCreateMode = true;
 		} else {
 			user =  CUserManager.getUsers().get(positionToWork);
 		}
@@ -197,7 +195,6 @@ public class UserInformationActivity extends Activity {
 				Bitmap bitmap = (Bitmap) extras.get("data");
 				ivProfileImage.setImageBitmap(bitmap);
 				user.setUserProfileImageBitmapURI(ImageUtility.getRealPathFromURI(ImageUtility.getImageUri(this, bitmap), this));
-				user.save();
 			}
 
 			break; 
@@ -206,7 +203,6 @@ public class UserInformationActivity extends Activity {
 				Uri selectedImage = imageReturnedIntent.getData();
 				ivProfileImage.setImageURI(selectedImage);
 				user.setUserProfileImageBitmapURI(ImageUtility.getRealPathFromURI(selectedImage, this));
-				user.save();
 			}
 			break;
 		}
@@ -216,11 +212,7 @@ public class UserInformationActivity extends Activity {
 		user.name = etName.getText().toString();
 		user.gender = Gender.values()[spGender.getSelectedItemPosition()];
 		user.save();
-		
-		if (isCreateMode) {
-			CUserManager.getUsers().add(user);
-		}
-		
+		CUserManager.refreshUserList();
 		Intent result = new Intent(this, CContactListActivity.class);
 		setResult(RESULT_OK, result);
 		finish();
