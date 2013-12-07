@@ -23,6 +23,10 @@ public class CUser extends Model implements Serializable {
 	@Column(name = "Gender")
 	public String gender;
 	
+	@Column(name = "Fields")
+	public List<CField> fields = new ArrayList<CField>();
+
+	
 	/**
 	 * 
 	 */
@@ -64,26 +68,21 @@ public class CUser extends Model implements Serializable {
 		this.gender = gender;
 	}
 
-	
-	
-	//	@Column(name = "MFields")
-	//	public List<CField> fields = new ArrayList<CField>();
-	//	
-	//	public enum gender {
-	//	femenine {
-	//		@Override
-	//		public String getDescription() {
-	//			return "femenine";
-	//		}
-	//	},
-	//	masculine {
-	//		@Override
-	//		public String getDescription() {
-	//			return "masculine";
-	//		}
-	//	};		
-	//	public abstract String getDescription();
-	//};
+//	public enum gender {
+//		femenine {
+//			@Override
+//			public String getDescription() {
+//				return "femenine";
+//			}
+//		},
+//		masculine {
+//			@Override
+//			public String getDescription() {
+//				return "masculine";
+//			}
+//		};		
+//		public abstract String getDescription();
+//	};
 
 
 }
