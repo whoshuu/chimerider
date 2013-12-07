@@ -9,6 +9,7 @@
         android:targetSdkVersion="17" />
 
     <application
+        android:name="com.example.chimerider.ChimeRiderApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -28,7 +29,7 @@
         </activity>
         <activity
             android:name="com.example.chimerider.information.CContactListActivity"
-            android:label="@string/title_activity_user_information" >
+            android:label="@string/title_activity_contact_list" >
         </activity>
         
         

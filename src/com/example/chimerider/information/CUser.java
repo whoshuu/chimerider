@@ -11,6 +11,27 @@ import com.activeandroid.annotation.Table;
 @Table(name = "CUser")
 public class CUser extends Model implements Serializable {
 
+	@Column(name = "UserProfileImageBitmapURI")
+	public String userProfileImageBitmapURI;
+	
+	@Column(name = "Name")
+	public String name;
+	
+	@Column(name = "UserId")
+	public int userId;
+
+	@Column(name = "Gender")
+	public String gender;
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5615313632792984879L;
+
+	public CUser() {
+		super();
+	}
+
 	public String getUserProfileImageBitmapURI() {
 		return userProfileImageBitmapURI;
 	}
@@ -19,90 +40,50 @@ public class CUser extends Model implements Serializable {
 		this.userProfileImageBitmapURI = userProfileImageBitmapURI;
 	}
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5615313632792984879L;
-
-//	@Table(name = "CFielsds")
-	public class CFielsd {
-		
-		public CFielsd() {}
-		
-		@Column(name = "MName")
-		public String mName;
-		
-		@Column(name = "MValue")
-		public String mValue;
+	public String getName() {
+		return name;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	
-	public enum gender {
-		femenine {
-			@Override
-			public String getDescription() {
-				return "femenine";
-			}
-		},
-		masculine {
-			@Override
-			public String getDescription() {
-				return "masculine";
-			}
-		};		
-		public abstract String getDescription();
-	};
 	
-	@Column(name = "UserProfileImageBitmapURI")
-	public String userProfileImageBitmapURI;
-	
-	@Column(name = "MName")
-	public String mName;
-	
-	@Column(name = "MId")
-	public int mId;
-	
-	public String getmName() {
-		return mName;
-	}
+	//	@Column(name = "MFields")
+	//	public List<CField> fields = new ArrayList<CField>();
+	//	
+	//	public enum gender {
+	//	femenine {
+	//		@Override
+	//		public String getDescription() {
+	//			return "femenine";
+	//		}
+	//	},
+	//	masculine {
+	//		@Override
+	//		public String getDescription() {
+	//			return "masculine";
+	//		}
+	//	};		
+	//	public abstract String getDescription();
+	//};
 
-	public void setmName(String mName) {
-		this.mName = mName;
-	}
 
-	public int getmId() {
-		return mId;
-	}
-
-	public void setmId(int mId) {
-		this.mId = mId;
-	}
-
-	public gender getmGender() {
-		return mGender;
-	}
-
-	public void setmGender(gender mGender) {
-		this.mGender = mGender;
-	}
-
-	public List<CFielsd> getmFields() {
-		return mFields;
-	}
-
-	public void setmFields(List<CFielsd> mFields) {
-		this.mFields = mFields;
-	}
-	
-	public CFielsd cerateNewField() {
-		CFielsd field = new CFielsd();
-		mFields.add(field);
-		return field;
-	}
-
-	@Column(name = "MGender")
-	public gender mGender;
-	
-	@Column(name = "MFields")
-	public List<CFielsd> mFields = new ArrayList<CFielsd>();
-	
 }

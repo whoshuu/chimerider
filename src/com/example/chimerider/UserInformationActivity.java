@@ -2,34 +2,20 @@ package com.example.chimerider;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.chimerider.information.CContactListActivity;
 import com.example.chimerider.information.CUser;
-import com.example.chimerider.information.CUser.CFielsd;
-import com.example.chimerider.information.CUser.gender;
-import com.example.chimerider.information.EditField;
-import com.example.chimerider.information.EditField.EditFieldCallback;
 import com.example.chimerider.util.ImageUtility;
 
 public class UserInformationActivity extends Activity {
@@ -38,103 +24,20 @@ public class UserInformationActivity extends Activity {
 	private CUser user;
 	private EditText etName;
 	private Spinner spGender;
-	private ListView mDynamicFields;
-	
-	protected RelativeLayout mMainLayout;
-	private Activity mCurrent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mCurrent = this;
 		setContentView(R.layout.activity_user_information);
 		ivProfileImage = (ImageView) findViewById(R.id.ivProfilePicture);
 		etName = (EditText) findViewById(R.id.etUserName);
 		spGender = (Spinner) findViewById(R.id.spGender);
-		mDynamicFields = (ListView) findViewById(R.id.user_information_dynamic_fields_view);
-		mMainLayout = (RelativeLayout) findViewById(R.id.activity_user_information);
 		
 		user = (CUser) getIntent().getSerializableExtra("user");
 		if (user == null) {
 			user = new CUser();
 		}
 		
-		mDynamicFields.setAdapter(new BaseAdapter() {
-			
-			@Override
-			public View getView(int position, View convertView, ViewGroup parent) {
-				if(user == null)
-					return null;
-				
-				final View v;
-				
-				if(position >= user.mFields.size()) {
-					LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-					v = inflater.inflate(R.layout.create_new_attribute_button, parent, false);
-				} else {
-					if(user.mFields.get(position) == null)
-						return null;
-					
-					if(convertView == null) {
-						LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-						v = inflater.inflate(R.layout.contacts_list_adaptor, parent, false);
-					} else {
-						v = convertView;
-					}
-					
-					// setup elements
-					((TextView) v.findViewById(R.id.dynamic_field_label)).setText(user.mFields.get(position).mName);
-					((TextView) v.findViewById(R.id.dynamic_field_element)).setText(user.mFields.get(position).mValue);
-				}
-				return v;
-			}
-			
-			@Override
-			public long getItemId(int position) {
-				if(position >= user.mFields.size()) 
-					return -1;
-				
-				return user.mFields.get(position).hashCode();
-			}
-			
-			@Override
-			public CFielsd getItem(int position) {
-				if(position >= user.mFields.size()) 
-					return null;
-				
-				return user.mFields.get(position);
-			}
-			
-			@Override
-			public int getCount() {
-				return user.mFields.size() + 1;
-			}
-		});
-		
-		mDynamicFields.setOnItemClickListener(new OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
-				CFielsd field = (CFielsd)mDynamicFields.getAdapter().getItem(arg2);
-				if(field == null) {
-					field = user.cerateNewField();
-				}
-				final CFielsd finalF = field;
-				EditField ef = new EditField(mCurrent, new EditFieldCallback() {
-					
-					@Override
-					public void onSave(final View v, final String field, final String value) {
-						finalF.mName = field;
-						finalF.mValue = value;
-						mMainLayout.removeView(v);
-						BaseAdapter a =(BaseAdapter)mDynamicFields.getAdapter();
-						a.notifyDataSetChanged();
-					}
-				}, finalF);
-				mMainLayout.addView(ef);
-			}
-		});
 	}
 
 	@Override
@@ -173,7 +76,6 @@ public class UserInformationActivity extends Activity {
 	        return pictureSourceDialog;
 	}
 	
-	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) { 
 		super.onActivityResult(requestCode, resultCode, imageReturnedIntent); 
 		switch(requestCode) {
@@ -199,12 +101,12 @@ public class UserInformationActivity extends Activity {
 	}
 
 	public void saveData(View v) {
-		if (spGender.getSelectedItemPosition() == 0) {
-			user.mGender = gender.femenine;
-		} else {
-			user.mGender = gender.masculine;
-		}
-		user.mName = etName.getText().toString();
+//		if (spGender.getSelectedItemPosition() == 0) {
+//			user.gender = gender.femenine;
+//		} else {
+//			user.gender = gender.masculine;
+//		}
+		user.name = etName.getText().toString();
 		user.save();
 		
 		Intent result = new Intent(this, CContactListActivity.class);

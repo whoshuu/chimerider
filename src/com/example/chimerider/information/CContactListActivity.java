@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -16,6 +17,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.chimerider.R;
+import com.example.chimerider.UserInformationActivity;
+import com.example.chimerider.R.id;
+import com.example.chimerider.R.layout;
 
 public class CContactListActivity extends Activity {
 
@@ -42,7 +46,8 @@ public class CContactListActivity extends Activity {
 			public void onClick(View v) {
 				CUser newUser = new CUser();
 				CUserManager.getUsers().add(newUser);
-				selectUser(newUser);	
+				Intent i = new Intent(getApplicationContext(), UserInformationActivity.class);
+				startActivityForResult(i, CREATE_NEW_CONTACT_REQUEST);
 			}
 		});
 	    
@@ -61,10 +66,9 @@ public class CContactListActivity extends Activity {
 				} else {
 					v = arg1;
 				}
-				
-				// TODO Rolan add image here small perhaps?
-				((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(CUserManager.getUser(arg0).mName);
-				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).mGender.getDescription());
+								
+				((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(CUserManager.getUser(arg0).name);
+//				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).gender.getDescription());
 				
 				return null;
 			}
@@ -74,7 +78,8 @@ public class CContactListActivity extends Activity {
 				if(CUserManager.getUser(arg0) == null)
 					return -1;
 				
-				return CUserManager.getUser(arg0).mId;
+//				return CUserManager.getUser(arg0).id;
+				return 0;
 			}
 			
 			@Override
@@ -107,11 +112,6 @@ public class CContactListActivity extends Activity {
 		// TODO Rolan call the new layout activity here
 	}
 	
-	public void createNewContact(View v) {
-		Intent i = new Intent();
-		startActivityForResult(i, CREATE_NEW_CONTACT_REQUEST);
-	}
-
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) { 
 		super.onActivityResult(requestCode, resultCode, data); 
 		switch(requestCode) {
