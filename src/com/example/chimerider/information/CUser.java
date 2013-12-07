@@ -63,17 +63,28 @@ public class CUser extends Model implements Serializable {
 	@Column(name = "Gender")
 	public int gender = Gender.notavailable.getPosition();
 
-	@Column(name = "MFields")
-	public List<CField> mFields = new ArrayList<CField>();
+	//temporary fields not saved to db
+	private List<CField> mFields = new ArrayList<CField>();
+	
+	//actual fields saved to db
+	public List<CField> items() {
+		return getMany(CField.class, "CUser");
+	}
 
-
+	
+	
 	public List<CField> getmFields() {
+		if (mFields.size() == 0) {
+			mFields = items();
+		}
 		return mFields;
 	}
 
 	public void setmFields(List<CField> mFields) {
 		this.mFields = mFields;
 	}
+
+
 
 	/**
 	 * 
