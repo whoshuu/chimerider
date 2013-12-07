@@ -118,16 +118,44 @@ public class StatsActivity extends Activity implements TabListener {
             , new GraphViewData(18, 4.5d) 
             , new GraphViewData(19, 5.6d)
       };
-         
-        GraphViewSeriesStyle lineStyle = new GraphViewSeriesStyle(Color.rgb(90, 250, 00), 5);
-        GraphViewSeries exampleSeries = new GraphViewSeries("",lineStyle,data); 
-        graphView.addSeries(exampleSeries);      
-        graphView.getGraphViewStyle().setGridColor(Color.TRANSPARENT);
-        graphView.getGraphViewStyle().setNumHorizontalLabels(1);  
-        graphView.getGraphViewStyle().setNumVerticalLabels(1);
-        graphView.getGraphViewStyle().setTextSize(1); 
         
-        ((LineGraphView) graphView).setDrawBackground(true);
+        GraphViewData[] avgdata = new GraphViewData[]{  
+                new GraphViewData(1, 5.5d)  
+                , new GraphViewData(2, 3.0d)  
+                , new GraphViewData(3, 4.6d)  
+                , new GraphViewData(4, 5.7d)  
+                , new GraphViewData(5, 4.9d) 
+                , new GraphViewData(6, 4.8d) 
+                , new GraphViewData(7, 4.5d) 
+                , new GraphViewData(8, 4.7d) 
+                , new GraphViewData(9, 5.5d) 
+                , new GraphViewData(9, 5.5d) 
+                , new GraphViewData(10, 5.5d) 
+                , new GraphViewData(11, 4.5d) 
+                , new GraphViewData(12, 4.5d) 
+                , new GraphViewData(13, 5.0d) 
+                , new GraphViewData(14, 4.1d) 
+                , new GraphViewData(15, 4.2d) 
+                , new GraphViewData(16, 4.4d) 
+                , new GraphViewData(17, 4.6d) 
+                , new GraphViewData(18, 5.0d) 
+                , new GraphViewData(19, 4.6d)
+          };
+        
+        GraphViewSeriesStyle lineStyle = new GraphViewSeriesStyle(Color.rgb(255, 102, 0), 5);
+        GraphViewSeriesStyle AvgLineStyle = new GraphViewSeriesStyle(Color.rgb(153, 153, 153), 5);
+        GraphViewSeries exampleSeries = new GraphViewSeries("",lineStyle,data); 
+        GraphViewSeries avgSeries = new GraphViewSeries("",AvgLineStyle,avgdata); 
+        graphView.addSeries(exampleSeries);
+        graphView.addSeries(avgSeries);  
+        graphView.getGraphViewStyle().setGridColor(Color.TRANSPARENT);
+        graphView.getGraphViewStyle().setNumHorizontalLabels(2);  
+        graphView.getGraphViewStyle().setNumVerticalLabels(2);
+//        graphView.getGraphViewStyle().setTextSize(2);
+        graphView.setHorizontalLabels(new String[] {"NOV 8","DEC 7"});  
+        graphView.setVerticalLabels(new String[] {"MAX 125", "MIN 25"}); 
+        
+        //((LineGraphView) graphView).setDrawBackground(true);
         llStats.addView(graphView);
         
         //ListView

@@ -12,7 +12,7 @@
     <string name="contact_list_new_contact">New Contact</string>
 
     <string-array name="gender_items">
-        <item>Not Available</item>
+        <item>Gender</item>
         <item>Female</item>
         <item>Male</item>
     </string-array>
