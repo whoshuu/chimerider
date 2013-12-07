@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#FFFFFF"
     android:layout_height="match_parent"
     >
 
@@ -12,7 +13,7 @@
     	android:layout_alignParentRight="true"
     	android:text="@string/contact_list_new_contact"
     	android:onClick="createNewContact"
-    	android:background="@drawable/btn_tab_states"
+    	android:background="@drawable/btn_tab_states_map"
         />
     
     <com.example.chimerider.util.MenuBarView
@@ -21,11 +22,23 @@
     	android:layout_height="wrap_content"
     	android:layout_below="@id/contact_list_new_contact"
         />
-    
-    <ListView
+
+    <TextView
+        android:id="@+id/tvContactListTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/contact_list_menu_bar"
+        android:layout_marginLeft="5dp"
+        android:text="PATIENTS"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+     <ListView
         android:id="@+id/contact_list_contacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/contact_list_menu_bar" />
-
+        android:layout_below="@id/tvContactListTitle"
+         />
+     
 </RelativeLayout>

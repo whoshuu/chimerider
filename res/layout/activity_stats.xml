@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".StatsActivity" >
     
     
@@ -13,7 +14,7 @@
         android:layout_alignParentRight="true"
         android:text="@string/contact_list_new_contact"
         android:onClick="createNewContact"
-        android:background="@drawable/btn_tab_states"
+        android:background="@drawable/btn_tab_states_map"
         />
 
     <com.example.chimerider.util.MenuBarView

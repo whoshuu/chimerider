@@ -1,10 +1,14 @@
 package com.example.chimerider.information;
 
+import java.text.DateFormat;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,7 +24,6 @@ import android.widget.TextView;
 import com.example.chimerider.MainActivity;
 import com.example.chimerider.R;
 import com.example.chimerider.StatsActivity;
-import com.example.chimerider.information.CUser.Gender;
 import com.example.chimerider.util.MenuBarView;
 import com.example.chimerider.util.MenuBarView.MenuBarViewListener;
 
@@ -30,6 +33,7 @@ public class CContactListActivity extends Activity {
 	ListView mContactsList;
 	Button mNewButton;
 	MenuBarView mMenuBar;
+	TextView tvContactListTitle;
 	
 	public CContactListActivity() {
 						
@@ -40,9 +44,13 @@ public class CContactListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.contact_list);
 	    
+	    
 	    mContactsList = (ListView)findViewById(R.id.contact_list_contacts);
 	    mNewButton = (Button)findViewById(R.id.contact_list_new_contact);
 	    mMenuBar = (MenuBarView)findViewById(R.id.contact_list_menu_bar); 
+	    
+	    tvContactListTitle = (TextView)findViewById(R.id.tvContactListTitle);
+	    tvContactListTitle.setTextColor(Color.parseColor("#CCCCCC"));
 	    
 	    mMenuBar.setClickListener(new MenuBarViewListener() {
 			
@@ -67,16 +75,22 @@ public class CContactListActivity extends Activity {
 			
 			@Override
 			public boolean isUserActive() {
+				findViewById(R.id.rlUser).setBackgroundColor(Color.rgb(255, 255, 255));
+				((Button)findViewById(R.id.menubar_user)).setPressed(true);
 				return false;
 			}
 			
 			@Override
 			public boolean isStatsActive() {
+				findViewById(R.id.rlStats).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_stats)).setPressed(false);
 				return true;
 			}
 			
 			@Override
 			public boolean isMapActive() {
+				findViewById(R.id.rlMap).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_map)).setPressed(false);
 				return true;
 			}
 		});
@@ -107,8 +121,18 @@ public class CContactListActivity extends Activity {
 								
 				CUser user = CUserManager.getUser(arg0);
 				if (user != null) {
-					((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(user.name);
-					((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(Gender.values()[user.gender].getDescription());
+					TextView contactListName = ((TextView)v.findViewById(R.id.contacts_list_adaptor_name));
+					contactListName.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
+					contactListName.setText(user.name);
+					contactListName.setTextColor(Color.parseColor("#333333"));
+					
+					if (user.createdDate != null) {
+						DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
+						TextView dateCreated = ((TextView)v.findViewById(R.id.contacts_list_adaptor_date_created));
+						dateCreated.setText(dateFormat.format(user.createdDate));
+						dateCreated.setTextColor(Color.parseColor("#FF6600"));
+					}
+					
 					if(user.getUserProfileImageBitmapURI() != null) {
 						((ImageView)v.findViewById(R.id.ivUserImage)).setImageURI(Uri.parse(user.getUserProfileImageBitmapURI()));
 					}
