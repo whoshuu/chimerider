@@ -44,8 +44,6 @@ public class CContactListActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				CUser newUser = new CUser();
-				CUserManager.getUsers().add(newUser);
 				Intent i = new Intent(getApplicationContext(), UserInformationActivity.class);
 				startActivityForResult(i, CREATE_NEW_CONTACT_REQUEST);
 			}
@@ -68,7 +66,7 @@ public class CContactListActivity extends Activity {
 				}
 								
 				((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(CUserManager.getUser(arg0).name);
-//				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).gender.getDescription());
+				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).gender);
 				
 				return v;
 			}
@@ -117,12 +115,15 @@ public class CContactListActivity extends Activity {
 		switch(requestCode) {
 		case CREATE_NEW_CONTACT_REQUEST:
 			if(resultCode == RESULT_OK){  
-//				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
+				CUser newUser = (CUser) data.getSerializableExtra(UserInformationActivity.CONTACT_OBJECT_KEY);
+				CUserManager.getUsers().add(newUser);
+				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
 			}
 			break; 
 		case EDIT_EXISTING_CONTACT_REQUEST:
 			if(resultCode == RESULT_OK){  
-//				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
+				CUser updatedUser = (CUser) data.getSerializableExtra(UserInformationActivity.CONTACT_OBJECT_KEY);
+				((BaseAdapter) mContactsList.getAdapter()).notifyDataSetChanged();
 			}
 			break;
 		}
