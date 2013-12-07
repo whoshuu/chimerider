@@ -23,6 +23,7 @@
     	android:layout_below="@id/contact_list_new_contact"
         />
 
+    <!-- android:background="@drawable/textlines" -->
     <TextView
         android:id="@+id/tvContactListTitle"
         android:layout_width="wrap_content"
@@ -31,14 +32,19 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/contact_list_menu_bar"
         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
         android:text="PATIENTS"
+        style="?android:listSeparatorTextViewStyle"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
      <ListView
-        android:id="@+id/contact_list_contacts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvContactListTitle"
-         />
+         android:id="@+id/contact_list_contacts"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp"
+         android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+         android:layout_below="@+id/tvContactListTitle" />
      
 </RelativeLayout>
