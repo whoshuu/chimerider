@@ -130,25 +130,39 @@ public class UserInformationActivity extends Activity {
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
 				CField field = (CField)mDynamicFields.getAdapter().getItem(arg2);
+				final boolean addField;
 				if(field == null) {
 					field = new CField();
+					addField = true;
+				} else {
+					addField = false;
 				}
 				final CField finalF = field;
 				EditField ef = new EditField(mCurrent, new EditFieldCallback() {
 					
 					@Override
 					public void onSave(final View v, final String fieldName, final String fieldValue) {
-						mMainLayout.removeView(v);
-						if(fieldName == null || fieldName == "" || fieldValue == null || fieldValue == "") {
-							return;
-						}
-						finalF.mName = fieldName;
-						finalF.mValue = fieldValue;
-						finalF.cuser = user;
-						//save it into a temporary field
-						user.getmFields().add(finalF);
-						BaseAdapter a =(BaseAdapter)mDynamicFields.getAdapter();
-						a.notifyDataSetChanged();
+						mDynamicFields.post(new Runnable() {
+							
+							@Override
+							public void run() {
+								mMainLayout.removeView(v);
+								if(fieldName == null || fieldName == "" || fieldValue == null || fieldValue == "") {
+									return;
+								}
+								finalF.mName = fieldName;
+								finalF.mValue = fieldValue;
+								finalF.cuser = user;
+								
+								if(addField) {
+									//save it into a temporary field
+									user.getmFields().add(finalF);
+								}
+								
+								BaseAdapter a =(BaseAdapter)mDynamicFields.getAdapter();
+								a.notifyDataSetChanged();
+							}
+						});
 					}
 
 					@Override
