@@ -3,6 +3,7 @@ package com.example.chimerider.information;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -68,6 +70,9 @@ public class CContactListActivity extends Activity {
 				if (user != null) {
 					((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(user.name);
 					((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(Gender.values()[user.gender].getDescription());
+					if(user.getUserProfileImageBitmapURI() != null) {
+						((ImageView)v.findViewById(R.id.ivUserImage)).setImageURI(Uri.parse(user.getUserProfileImageBitmapURI()));
+					}
 				}
 				
 				return v;

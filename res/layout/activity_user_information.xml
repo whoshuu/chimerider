@@ -48,6 +48,7 @@
         </RelativeLayout>
         <ImageView
             android:id="@+id/ivProfilePicture"
+            android:scaleType="centerCrop"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_below="@+id/rlPicture"
@@ -68,18 +69,20 @@
             android:id="@+id/spGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivProfilePicture"
             android:layout_alignLeft="@+id/etUserName"
-            android:layout_below="@+id/etUserName" 
-            android:entries="@array/gender_items"/>
+            android:layout_below="@+id/etUserName"
+            android:entries="@array/gender_items" />
 
         <ListView
             android:id="@+id/user_information_dynamic_fields_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button1"
-            android:layout_below="@+id/spGender"
-            android:layout_centerHorizontal="true"
-            >
+            android:layout_below="@+id/tvSymptoms"
+            android:layout_marginBottom = "20dp"
+            android:layout_marginTop = "20dp"
+            android:layout_centerHorizontal="true" >
 
         </ListView>
         
@@ -92,5 +95,16 @@
             android:layout_centerHorizontal="true"
             android:onClick="saveData"
             android:text="Save" />
+
+        <EditText
+            android:id="@+id/tvSymptoms"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/ivProfilePicture"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/ivProfilePicture"
+            android:layout_marginTop="10dp"
+            android:hint="Medical Symptoms"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
