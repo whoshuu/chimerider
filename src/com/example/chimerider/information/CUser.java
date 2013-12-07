@@ -23,8 +23,8 @@ public class CUser extends Model implements Serializable {
 	@Column(name = "Gender")
 	public String gender;
 	
-	@Column(name = "Fields")
-	public List<CField> fields = new ArrayList<CField>();
+	@Column(name = "MFields")
+	public List<CField> mFields = new ArrayList<CField>();
 
 	
 	/**
