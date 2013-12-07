@@ -2,10 +2,12 @@ package com.example.chimerider.util;
 
 import java.util.ArrayList;
 
+import org.osmdroid.DefaultResourceProxyImpl;
 import org.osmdroid.bonuspack.overlays.ExtendedOverlayItem;
 import org.osmdroid.bonuspack.overlays.ItemizedOverlayWithBubble;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
+import org.osmdroid.views.overlay.ItemizedIconOverlay;
 import org.osmdroid.views.overlay.Overlay;
 import org.osmdroid.views.overlay.OverlayItem;
 import org.osmdroid.views.overlay.PathOverlay;
@@ -157,6 +159,52 @@ public class PathUtil {
 		overlay.addItem(item3);
 		overlay.addItem(item4);
 		overlay.addItem(item5);
+		
+		return overlay;
+	}
+	
+	public static Overlay location1(Context context, MapView map) {
+		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
+		ItemizedIconOverlay<OverlayItem> overlay = new ItemizedIconOverlay<OverlayItem>(new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
+		GeoPoint gp = new GeoPoint(-29.452567, 28.533135);
+		OverlayItem item = new OverlayItem(null, null, gp);
+		item.setMarker(marker);
+		overlay.addItem(item);
+		
+		return overlay;
+	}
+	
+	public static Overlay location2(Context context, MapView map) {
+		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
+		ItemizedIconOverlay<OverlayItem> overlay = new ItemizedIconOverlay<OverlayItem>(new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
+		GeoPoint gp = new GeoPoint(-29.422567, 28.531135);
+		OverlayItem item = new OverlayItem(null, null, gp);
+		item.setMarker(marker);
+		overlay.addItem(item);
+		
+		return overlay;
+	}
+	
+	public static Overlay location3(Context context, MapView map) {
+		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
+		ItemizedIconOverlay<OverlayItem> overlay = new ItemizedIconOverlay<OverlayItem>(new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
+		GeoPoint gp = new GeoPoint(-29.402567, 28.503135);
+		OverlayItem item = new OverlayItem(null, null, gp);
+		item.setMarker(marker);
+		overlay.addItem(item);
+		
+		return overlay;
+	}
+	
+
+	public static Overlay location4(Context context, MapView map) {
+		Drawable marker = context.getResources().getDrawable(R.drawable.marker_poi_default);
+		ItemizedIconOverlay<OverlayItem> overlay = new ItemizedIconOverlay<OverlayItem>(new ArrayList<OverlayItem>(), marker, null, new DefaultResourceProxyImpl(context));
+
+        GeoPoint gp = new GeoPoint(-29.362567, 28.483135);
+		OverlayItem item = new OverlayItem(null, null, gp);
+		item.setMarker(marker);
+		overlay.addItem(item);
 		
 		return overlay;
 	}

@@ -7,8 +7,41 @@
         android:id="@+id/mapview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tilesource="Mapnik"
+        tilesource="Mapnik" 
         
         />
+    
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Start"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:background="#CC00A651"
+        android:layout_gravity="center"
+        ></Button>
+    
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:visibility="invisible"
+        ></Button>
+        
+    <Button
+        android:id="@+id/btnPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btnStop"
+        android:visibility="invisible"
+        ></Button>
+        
+    
 
 </RelativeLayout>
