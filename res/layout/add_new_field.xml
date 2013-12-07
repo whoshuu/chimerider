@@ -1,69 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_new_field_main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:background="#FFFFFFFF"
-   	android:clickable="true">
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:clickable="true" >
 
-    <TableLayout 
-        android:id="@+id/table_component"
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:orientation="vertical"
-    	android:layout_centerInParent="true" 
-    	android:background="#FFFFFFFF"
-    	>
-    	<TableRow
-		    android:gravity="right" 
-		    >
-			<Button
-		        android:id="@+id/close_add_new_field"
-		        android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:text="X"
-			    android:textColor="#FFFF0000"
-		        />		    
-		</TableRow>
-    	<TableRow >
-			<TextView
-			    android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:text="@string/new_field_label"
-	        	/>     
-	        	
-			<EditText 
-			    android:id="@+id/new_field_label"
-			    android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:inputType="text"
-	    		android:minWidth="150dp"
-			    />
-		</TableRow>
-		
-        <TableRow >
-			<TextView
-			    android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:text="@string/new_field_value"
-	        	/>     
-	        	
-			<EditText 
-			    android:id="@+id/new_field_value"
-			    android:layout_width="wrap_content"
-	    		android:layout_height="wrap_content"
-	    		android:inputType="text"
-	    		android:minWidth="150dp"
-			    />
-		</TableRow>
-		<TableRow
-		    android:gravity="center" 
-		    >
-			<Button
-		        android:id="@+id/save_new_field"
-		        android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:text="@string/new_field_save"
-		        />		    
-		</TableRow>
-    </TableLayout>
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#FFFFFFFF" >
+
+        <TableLayout
+            android:id="@+id/table_component"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:padding="10dp" >
+
+            <TableRow>
+
+                <EditText
+                    android:id="@+id/new_field_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:minWidth="200dp"
+                    android:text="Label"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+            <TableRow>
+
+                <EditText
+                    android:id="@+id/new_field_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:inputType="text"
+                    android:minWidth="200dp"
+                    android:text="Value"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+            <TableRow android:gravity="center" >
+
+                <Button
+                    android:id="@+id/save_new_field"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/green_button"
+                    android:text="@string/new_field_save"
+                    android:textColor="@android:color/white" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/close_add_new_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/relativeLayout1"
+        android:layout_alignRight="@+id/relativeLayout1"
+        android:background="@android:color/white"
+        android:text="X"
+        android:textColor="@color/black_runner" />
+
 </RelativeLayout>
