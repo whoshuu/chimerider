@@ -13,8 +13,9 @@
             android:hint="Category"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="16dp"
+            android:textStyle="bold" 
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
         <TextView
             android:id="@+id/tvTime"
@@ -23,9 +24,10 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:hint="Time"
-            android:textColor="#A9A9A9"
+            android:textColor="#ff6600"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:textSize="15sp" />
+            android:layout_marginRight="16dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     </RelativeLayout>
