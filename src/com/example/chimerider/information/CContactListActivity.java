@@ -61,7 +61,8 @@ public class CContactListActivity extends Activity {
 				} else {
 					v = arg1;
 				}
-								
+				
+				// TODO Rolan add image here small perhaps?
 				((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(CUserManager.getUser(arg0).mName);
 				((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(CUserManager.getUser(arg0).mGender.getDescription());
 				

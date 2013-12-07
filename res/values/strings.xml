@@ -14,4 +14,9 @@
         <item>Male</item>
     </string-array>
     
+    <string name="create_new_attribute">+ Create New Attribute</string>
+    <string name="new_field_label">Label</string>
+    <string name="new_field_value">Value</string>
+    <string name="new_field_save">Save</string>
+    
 </resources>

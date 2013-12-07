@@ -26,6 +26,9 @@ public class CUser extends Model implements Serializable {
 
 //	@Table(name = "CFielsds")
 	public class CFielsd {
+		
+		public CFielsd() {}
+		
 		@Column(name = "MName")
 		public String mName;
 		
@@ -88,6 +91,12 @@ public class CUser extends Model implements Serializable {
 
 	public void setmFields(List<CFielsd> mFields) {
 		this.mFields = mFields;
+	}
+	
+	public CFielsd cerateNewField() {
+		CFielsd field = new CFielsd();
+		mFields.add(field);
+		return field;
 	}
 
 	@Column(name = "MGender")

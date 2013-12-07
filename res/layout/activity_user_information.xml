@@ -7,7 +7,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:clipToPadding="false"
-    tools:context=".UserInformationActivity" >
+    tools:context=".UserInformationActivity"
+    android:id="@+id/activity_user_information" 
+    >
 
     
     <RelativeLayout
@@ -60,16 +62,7 @@
             android:layout_toRightOf="@+id/ivProfilePicture"
             android:ems="10"
             android:hint="Name" />
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:onClick="saveData"
-            android:text="Save" />
-
+        
         <Spinner
             android:id="@+id/spGender"
             android:layout_width="wrap_content"
@@ -77,5 +70,26 @@
             android:layout_alignLeft="@+id/etUserName"
             android:layout_below="@+id/etUserName" 
             android:entries="@array/gender_items"/>
-    
+
+        <ListView
+            android:id="@+id/user_information_dynamic_fields_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button1"
+            android:layout_below="@+id/spGender"
+            android:layout_centerHorizontal="true"
+            >
+
+        </ListView>
+        
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="4dp"
+            android:layout_centerHorizontal="true"
+            android:onClick="saveData"
+            android:text="Save" />
+
 </RelativeLayout>
