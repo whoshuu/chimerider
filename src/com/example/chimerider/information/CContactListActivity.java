@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -68,16 +69,22 @@ public class CContactListActivity extends Activity {
 			
 			@Override
 			public boolean isUserActive() {
+				findViewById(R.id.rlUser).setBackgroundColor(Color.rgb(255, 255, 255));
+				((Button)findViewById(R.id.menubar_user)).setPressed(true);
 				return false;
 			}
 			
 			@Override
 			public boolean isStatsActive() {
+				findViewById(R.id.rlStats).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_stats)).setPressed(false);
 				return true;
 			}
 			
 			@Override
 			public boolean isMapActive() {
+				findViewById(R.id.rlMap).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_map)).setPressed(false);
 				return true;
 			}
 		});
