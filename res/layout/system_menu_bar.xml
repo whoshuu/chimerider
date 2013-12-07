@@ -13,8 +13,8 @@
         >
         <Button
         android:id="@+id/menubar_map"
-            android:layout_width="21dp"
-            android:layout_height="20dp"
+            android:layout_width="28dp"
+            android:layout_height="30dp"
             android:background="@drawable/btn_tab_states_map"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true">
@@ -32,8 +32,8 @@
         >
         <Button
         android:id="@+id/menubar_stats"
-            android:layout_width="25dp"
-            android:layout_height="20dp"
+            android:layout_width="37dp"
+            android:layout_height="30dp"
             android:background="@drawable/btn_tab_states_stats"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true">
@@ -52,8 +52,8 @@
         >
         <Button
         android:id="@+id/menubar_user"
-            android:layout_width="25dp"
-            android:layout_height="20dp"
+            android:layout_width="37dp"
+            android:layout_height="30dp"
             android:background="@drawable/btn_tab_states_user"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true">
