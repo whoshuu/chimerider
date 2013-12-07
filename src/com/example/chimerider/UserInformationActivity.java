@@ -19,7 +19,6 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -222,7 +221,7 @@ public class UserInformationActivity extends Activity {
 
 	public void saveData(View v) {
 		user.name = etName.getText().toString();
-		user.gender = Gender.values()[spGender.getSelectedItemPosition()];
+		user.gender = spGender.getSelectedItemPosition();
 		user.save();
 		CUserManager.refreshUserList();
 		Intent result = new Intent(this, CContactListActivity.class);
