@@ -1,4 +1,4 @@
-package com.example.chimerider;
+package com.example.chimerider.information;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,16 +18,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.chimerider.information.CContactListActivity;
-import com.example.chimerider.information.CField;
-import com.example.chimerider.information.CUser;
-import com.example.chimerider.information.CUserManager;
-import com.example.chimerider.information.EditField;
+import com.example.chimerider.R;
 import com.example.chimerider.information.EditField.EditFieldCallback;
 import com.example.chimerider.util.ImageUtility;
 import com.example.chimerider.util.ModifiableLinearLayout;
@@ -57,6 +52,11 @@ public class UserInformationActivity extends Activity {
 		
 		if (positionToWork >= CUserManager.getUsers().size()) {
 			user = new CUser();
+			user.mFields.add(new CField("Location", String.valueOf((int)Math.floor(Math.random()*5) + 1), user));
+			user.mFields.add(new CField("Medical Notes", "Notes", user));
+			user.mFields.add(new CField("Pregnancy", "N/A", user));
+			user.mFields.add(new CField("HIV", "N/A", user));
+			user.mFields.add(new CField("TB", "N/A", user));
 		} else {
 			user =  CUserManager.getUsers().get(positionToWork);
 		}

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">ChimeRider</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -7,6 +8,7 @@
     <string name="title_activity_contact_list">Contacts</string>
     <string name="menu_map">Map</string>
     <string name="menu_stats">Stats</string>
+    <string name="menu_users">Users</string>
     <string name="contact_list_new_contact">New Contact</string>
 
     <string-array name="gender_items">
@@ -14,16 +16,17 @@
         <item>Female</item>
         <item>Male</item>
     </string-array>
-    
+
     <string name="create_new_attribute">+ Create New Attribute</string>
     <string name="new_field_label">Label</string>
     <string name="new_field_value">Value</string>
     <string name="new_field_save">Save</string>
     <string name="title_activity_stats">Statistics</string>
     <string name="title_activity_country">Countries</string>
-
     <string name="my_position">My Position</string>
     <string name="departure">Departure</string>
     <string name="destination">Destination</string>
     <string name="viapoint">Via-Point</string>
+    <string name="title_activity_type">TypeActivity</string>
+
 </resources>

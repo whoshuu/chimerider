@@ -31,7 +31,7 @@
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"
-            android:text="User Picture"
+            android:text="Patient Information"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -70,8 +70,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/ivProfilePicture"
-            android:layout_alignLeft="@+id/etUserName"
             android:layout_below="@+id/etUserName"
+            android:layout_toRightOf="@+id/textView1"
             android:entries="@array/gender_items" />
 
         <ListView
@@ -79,10 +79,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/button1"
-            android:layout_below="@+id/tvSymptoms"
-            android:layout_marginBottom = "20dp"
-            android:layout_marginTop = "20dp"
-            android:layout_centerHorizontal="true" >
+            android:layout_below="@+id/ivProfilePicture"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp" >
 
         </ListView>
         
@@ -97,15 +97,13 @@
             android:onClick="saveData"
             android:text="Save" />
 
-        <EditText
-            android:id="@+id/tvSymptoms"
+        <TextView
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_alignLeft="@+id/ivProfilePicture"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/ivProfilePicture"
-            android:layout_marginTop="10dp"
-            android:hint="Medical Symptoms"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/user_information_dynamic_fields_view"
+            android:layout_alignLeft="@+id/etUserName"
+            android:text="Gender"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

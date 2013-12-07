@@ -1,4 +1,4 @@
-package com.example.chimerider.information;
+package com.example.chimerider.util;
 
 import com.example.chimerider.R;
 
@@ -28,12 +28,20 @@ public class MenuBarView extends LinearLayout {
 	}
 
 	public interface MenuBarViewListener {
-		public void onMapClick();
-		public void onStatsClick();
+		// Click listeners 
+		public abstract void onMapClick();
+		public abstract void onStatsClick();
+		public abstract void onUserClick();
+		
+		// Enable Configuration
+		public abstract boolean isMapActive();
+		public abstract boolean isStatsActive();
+		public abstract boolean isUserActive();
 	}
 	
 	Button mMap;
 	Button mStats;
+	Button mUsers;
 	
 	void initialize(Context context) {
 		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -41,9 +49,12 @@ public class MenuBarView extends LinearLayout {
 		
 		mMap = (Button)v.findViewById(R.id.menubar_map);
 		mStats = (Button)v.findViewById(R.id.menubar_stats);
+		mUsers = (Button)v.findViewById(R.id.menubar_users);
 	}
 	
 	public void setClickListener(final MenuBarViewListener listener) {
+		mMap.setEnabled(listener.isMapActive());
+		mMap.setClickable(listener.isMapActive());
 		mMap.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -52,11 +63,23 @@ public class MenuBarView extends LinearLayout {
 			}
 		});
 		
+		mStats.setEnabled(listener.isStatsActive());
+		mStats.setClickable(listener.isStatsActive());
 		mStats.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				listener.onStatsClick();
+			}
+		});
+		
+		mUsers.setEnabled(listener.isUserActive());
+		mUsers.setClickable(listener.isUserActive());
+		mUsers.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				listener.onUserClick();
 			}
 		});
 	}
