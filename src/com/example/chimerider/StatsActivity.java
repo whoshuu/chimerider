@@ -82,7 +82,11 @@ public class StatsActivity extends Activity implements TabListener {
     
     private void setUpNavigationTabs() {
         ActionBar actionBar = getActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        if(actionBar != null) {
+        	actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        } else {
+        	return;
+        }
         //showing title bar option
         actionBar.setDisplayShowTitleEnabled(true);
         Tab tabStats = actionBar.newTab().setText("")
