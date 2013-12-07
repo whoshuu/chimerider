@@ -1,5 +1,6 @@
 package com.example.chimerider;
 
+
 import com.example.chimerider.information.CContactListActivity;
 
 import android.app.Activity;
@@ -26,5 +27,10 @@ public class MainActivity extends Activity {
 	public void showContactList(View v) {
 		Intent i = new Intent(this, CContactListActivity.class);
 		startActivity(i);
+	}
+	
+	public void onStats(View v){
+	    Intent i = new Intent(this, StatsActivity.class);
+	    startActivity(i);
 	}
 }

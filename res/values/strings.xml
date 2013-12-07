@@ -13,5 +13,8 @@
         <item>Female</item>
         <item>Male</item>
     </string-array>
-    
+
+    <string name="title_activity_stats">Statistics</string>
+    <string name="title_activity_country">Countries</string>
+
 </resources>
