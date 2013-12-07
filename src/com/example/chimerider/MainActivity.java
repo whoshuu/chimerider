@@ -20,6 +20,7 @@ import android.widget.Button;
 
 public class MainActivity extends FragmentActivity {
 	private static final int CREATE_EDIT_CONTACT_REQUEST = 0;
+	Button hv;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends FragmentActivity {
 
 	    MenuBarView mMenuBar = (MenuBarView) findViewById(R.id.contact_list_menu_bar); 
 	    Button mNewButton = (Button)findViewById(R.id.contact_list_new_contact);
+	    hv = (Button) findViewById(R.id.HIV);
 
 	    
 	    mNewButton.setOnClickListener(new OnClickListener() {
@@ -81,6 +83,24 @@ public class MainActivity extends FragmentActivity {
 				return false;
 			}
 		});
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void hiv(View v) {
+		hv.setBackgroundDrawable(getResources().getDrawable(R.drawable.hiv_selected));
+		MapFragment map = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment1);
+		map.hiv();
+		
+	}
+	
+
+	@SuppressWarnings("deprecation")
+	public void tb(View v) {
+		((Button) v).setBackgroundDrawable(getResources().getDrawable(R.drawable.tb_selected));
+		hv.setBackgroundDrawable(getResources().getDrawable(R.drawable.hiv_norm));
+		MapFragment map = (MapFragment) getSupportFragmentManager().findFragmentById(R.id.fragment1);
+		map.tb();
+		
 	}
 
 	public void selectUser(int userPosition) {

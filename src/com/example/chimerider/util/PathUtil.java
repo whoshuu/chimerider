@@ -357,5 +357,63 @@ public class PathUtil {
         rPath.addPoint(end);
 		return rPath;
 	}
+	
+	public static Overlay first(Context context) {
+        GeoPoint gp1 = new GeoPoint(-29.422567, 28.403135);
+        GeoPoint gp2 = new GeoPoint(-29.362567, 28.483135);
+        GeoPoint gp3 = new GeoPoint(-29.392567, 28.353135);
+		GeoPoint gp4 = new GeoPoint(-29.407567, 28.453135);
+		GeoPoint gp5 = new GeoPoint(-29.452567, 28.533135);
+		
+
+        GeoPoint m2 = new GeoPoint(-29.402567, 28.503135);
+        GeoPoint m1 = new GeoPoint(-29.422567, 28.531135);
+        
+
+        PathOverlay path = new PathOverlay(Color.rgb(46, 185, 225), context);
+        Paint paint = path.getPaint();
+        paint.setStrokeWidth(4.0f);
+        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        path.setAlpha(100);
+        
+        path.addPoint(gp2);
+        path.addPoint(gp3);
+        path.addPoint(gp1);
+        path.addPoint(gp4);
+        path.addPoint(gp5);
+        
+		return path;
+	}
+	
+	public static Overlay second(Context context) {
+		GeoPoint gp1 = new GeoPoint(-29.422567, 28.403135);
+        GeoPoint gp2 = new GeoPoint(-29.362567, 28.483135);
+        GeoPoint gp3 = new GeoPoint(-29.392567, 28.353135);
+		GeoPoint gp4 = new GeoPoint(-29.407567, 28.453135);
+		GeoPoint gp5 = new GeoPoint(-29.452567, 28.533135);
+		
+
+        GeoPoint m2 = new GeoPoint(-29.402567, 28.503135);
+        GeoPoint m1 = new GeoPoint(-29.422567, 28.531135);
+        
+
+        PathOverlay path = new PathOverlay(Color.rgb(46, 185, 225), context);
+        Paint paint = path.getPaint();
+        paint.setStrokeWidth(4.0f);
+        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
+        paint.setStrokeCap(Paint.Cap.ROUND);
+        path.setAlpha(100);
+
+        path.addPoint(gp2);
+        path.addPoint(m2);
+        path.addPoint(m1);
+        path.addPoint(gp5);
+        path.addPoint(gp4);
+        path.addPoint(gp1);
+        path.addPoint(gp3);
+        
+		return path;
+	}
 
 }

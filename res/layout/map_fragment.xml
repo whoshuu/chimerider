@@ -27,19 +27,24 @@
     
     <Button
         android:id="@+id/btnStop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/stop"
         android:visibility="invisible"
         ></Button>
         
     <Button
         android:id="@+id/btnPause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
         android:layout_toLeftOf="@+id/btnStop"
+        android:background="@drawable/pause"
         android:visibility="invisible"
         ></Button>
         
