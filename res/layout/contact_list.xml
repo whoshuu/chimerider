@@ -12,7 +12,7 @@
     	android:layout_alignParentRight="true"
     	android:text="@string/contact_list_new_contact"
     	android:onClick="createNewContact"
-    	android:background="@drawable/btn_tab_states"
+    	android:background="@drawable/btn_tab_states_map"
         />
     
     <com.example.chimerider.util.MenuBarView
