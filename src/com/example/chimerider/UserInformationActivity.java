@@ -79,12 +79,12 @@ public class UserInformationActivity extends Activity {
 				
 				final ModifiableLinearLayout v;
 				
-				if(position >= user.mFields.size()) {
+				if(position >= user.getmFields().size()) {
 					LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 					v = (ModifiableLinearLayout)inflater.inflate(R.layout.create_new_attribute_button, parent, false);
 					v.mId = R.layout.create_new_attribute_button;
 				} else {
-					if(user.mFields.get(position) == null)
+					if(user.getmFields().get(position) == null)
 						return null;
 					
 					if(convertView == null || ((ModifiableLinearLayout)convertView).mId != R.layout.contacts_list_adaptor) {
@@ -96,31 +96,31 @@ public class UserInformationActivity extends Activity {
 					}
 					
 					// setup elements
-					((TextView) v.findViewById(R.id.dynamic_field_label)).setText(user.mFields.get(position).mName);
-					((TextView) v.findViewById(R.id.dynamic_field_element)).setText(user.mFields.get(position).mValue);
+					((TextView) v.findViewById(R.id.dynamic_field_label)).setText(user.getmFields().get(position).mName);
+					((TextView) v.findViewById(R.id.dynamic_field_element)).setText(user.getmFields().get(position).mValue);
 				}
 				return v;
 			}
 			
 			@Override
 			public long getItemId(int position) {
-				if(position >= user.mFields.size()) 
+				if(position >= user.getmFields().size()) 
 					return -1;
 				
-				return user.mFields.get(position).hashCode();
+				return user.getmFields().get(position).hashCode();
 			}
 			
 			@Override
 			public CField getItem(int position) {
-				if(position >= user.mFields.size()) 
+				if(position >= user.getmFields().size()) 
 					return null;
 				
-				return user.mFields.get(position);
+				return user.getmFields().get(position);
 			}
 			
 			@Override
 			public int getCount() {
-				return user.mFields.size() + 1;
+				return user.getmFields().size() + 1;
 			}
 		});
 		
@@ -137,14 +137,16 @@ public class UserInformationActivity extends Activity {
 				EditField ef = new EditField(mCurrent, new EditFieldCallback() {
 					
 					@Override
-					public void onSave(final View v, final String field, final String value) {
+					public void onSave(final View v, final String fieldName, final String fieldValue) {
 						mMainLayout.removeView(v);
-						if(field == null || field == "" || value == null || value == "") {
+						if(fieldName == null || fieldName == "" || fieldValue == null || fieldValue == "") {
 							return;
 						}
-						finalF.mName = field;
-						finalF.mValue = value;
-						user.mFields.add(finalF);
+						finalF.mName = fieldName;
+						finalF.mValue = fieldValue;
+						finalF.cuser = user;
+						//save it into a temporary field
+						user.getmFields().add(finalF);
 						BaseAdapter a =(BaseAdapter)mDynamicFields.getAdapter();
 						a.notifyDataSetChanged();
 					}
@@ -223,6 +225,10 @@ public class UserInformationActivity extends Activity {
 		user.name = etName.getText().toString();
 		user.gender = spGender.getSelectedItemPosition();
 		user.save();
+		for (int i = 0; i < user.getmFields().size(); i++) {
+			CField field = user.getmFields().get(i);
+			field.save();
+		}
 		CUserManager.refreshUserList();
 		Intent result = new Intent(this, CContactListActivity.class);
 		setResult(RESULT_OK, result);
