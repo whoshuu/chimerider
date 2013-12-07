@@ -113,6 +113,8 @@ public class CContactListActivity extends Activity {
 					TextView contactListName = ((TextView)v.findViewById(R.id.contacts_list_adaptor_name));
 					contactListName.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
 					contactListName.setText(user.name);
+					contactListName.setTextColor(Color.parseColor("#333333"));
+					
 					if (user.createdDate != null) {
 						DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
 						TextView dateCreated = ((TextView)v.findViewById(R.id.contacts_list_adaptor_date_created));
