@@ -1,8 +1,6 @@
 package com.example.chimerider.information;
 
 import com.example.chimerider.R;
-import com.example.chimerider.information.CUser.CFielsd;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +18,7 @@ public class EditField extends LinearLayout {
 	EditText mLabelView;
 	EditText mValueView;
 	
-	public EditField(Context context, final EditFieldCallback callback, final CFielsd fields) {
+	public EditField(Context context, final EditFieldCallback callback, final CField fields) {
 		super(context);
 		
 		LayoutInflater inflater = LayoutInflater.from(context);

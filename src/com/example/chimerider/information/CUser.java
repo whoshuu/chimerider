@@ -64,7 +64,11 @@ public class CUser extends Model implements Serializable {
 		this.gender = gender;
 	}
 
-	
+	public CField cerateNewField() {
+		CField field = new CField();
+		mFields.add(field);
+		return field;
+	}
 	
 	//	@Column(name = "MFields")
 	//	public List<CField> fields = new ArrayList<CField>();
