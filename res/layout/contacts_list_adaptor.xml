@@ -33,8 +33,7 @@
             android:layout_gravity="left"
             android:layout_marginRight="50dp"
             android:text="Name"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp"/>
     </LinearLayout>
 
      <TextView

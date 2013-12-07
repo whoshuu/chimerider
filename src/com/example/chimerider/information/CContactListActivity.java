@@ -70,16 +70,22 @@ public class CContactListActivity extends Activity {
 			
 			@Override
 			public boolean isUserActive() {
+				findViewById(R.id.rlUser).setBackgroundColor(Color.rgb(255, 255, 255));
+				((Button)findViewById(R.id.menubar_user)).setPressed(true);
 				return false;
 			}
 			
 			@Override
 			public boolean isStatsActive() {
+				findViewById(R.id.rlStats).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_stats)).setPressed(false);
 				return true;
 			}
 			
 			@Override
 			public boolean isMapActive() {
+				findViewById(R.id.rlMap).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_map)).setPressed(false);
 				return true;
 			}
 		});
@@ -113,6 +119,8 @@ public class CContactListActivity extends Activity {
 					TextView contactListName = ((TextView)v.findViewById(R.id.contacts_list_adaptor_name));
 					contactListName.setGravity(Gravity.CENTER_VERTICAL | Gravity.LEFT);
 					contactListName.setText(user.name);
+					contactListName.setTextColor(Color.parseColor("#333333"));
+					
 					if (user.createdDate != null) {
 						DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
 						TextView dateCreated = ((TextView)v.findViewById(R.id.contacts_list_adaptor_date_created));

@@ -9,6 +9,7 @@ import com.example.chimerider.util.MenuBarView.MenuBarViewListener;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -57,19 +58,26 @@ public class MainActivity extends FragmentActivity {
 			public void onMapClick() {
 				return;
 			}
+
 			
 			@Override
 			public boolean isUserActive() {
+				findViewById(R.id.rlUser).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_user)).setPressed(false);
 				return true;
 			}
 			
 			@Override
 			public boolean isStatsActive() {
+				findViewById(R.id.rlStats).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_stats)).setPressed(false);
 				return true;
 			}
 			
 			@Override
 			public boolean isMapActive() {
+				findViewById(R.id.rlMap).setBackgroundColor(Color.rgb(255, 255, 255));
+				((Button)findViewById(R.id.menubar_map)).setPressed(true);
 				return false;
 			}
 		});

@@ -49,7 +49,7 @@ public class MenuBarView extends LinearLayout {
 		
 		mMap = (Button)v.findViewById(R.id.menubar_map);
 		mStats = (Button)v.findViewById(R.id.menubar_stats);
-		mUsers = (Button)v.findViewById(R.id.menubar_users);
+		mUsers = (Button)v.findViewById(R.id.menubar_user);
 	}
 	
 	public void setClickListener(final MenuBarViewListener listener) {

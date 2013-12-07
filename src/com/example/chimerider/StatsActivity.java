@@ -61,16 +61,22 @@ public class StatsActivity extends Activity implements TabListener {
 			
 			@Override
 			public boolean isUserActive() {
+				findViewById(R.id.rlUser).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_user)).setPressed(false);
 				return true;
 			}
 			
 			@Override
 			public boolean isStatsActive() {
+				findViewById(R.id.rlStats).setBackgroundColor(Color.rgb(255, 255, 255));
+				((Button)findViewById(R.id.menubar_stats)).setPressed(true);
 				return false;
 			}
 			
 			@Override
 			public boolean isMapActive() {
+				findViewById(R.id.rlMap).setBackgroundColor(Color.rgb(245, 244, 240));
+				((Button)findViewById(R.id.menubar_map)).setPressed(false);
 				return true;
 			}
 		});
