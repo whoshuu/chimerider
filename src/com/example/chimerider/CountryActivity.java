@@ -1,6 +1,8 @@
 
 package com.example.chimerider;
 
+import com.example.chimerider.information.CContactListActivity;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -31,6 +33,11 @@ public class CountryActivity extends Activity {
             
         });
     }
+
+	public void showContactList(View v) {
+		Intent i = new Intent(this, CContactListActivity.class);
+		startActivity(i);
+	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

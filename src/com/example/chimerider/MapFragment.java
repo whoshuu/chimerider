@@ -26,7 +26,7 @@ public class MapFragment extends Fragment {
 	public void onResume() {
 		mapView = (MapView) getActivity().findViewById(R.id.mapview);
         mapView.setClickable(true);
-        mapView.setUseDataConnection(false);
+        //mapView.setUseDataConnection(false);
         mapView.setMinZoomLevel(8);
         mapView.setMaxZoomLevel(15);
         mapView.setBuiltInZoomControls(true);
