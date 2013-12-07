@@ -17,6 +17,7 @@ public class EditField extends LinearLayout {
 	}
 	
 	View mMasterView;
+	View mLayoutView;
 	EditText mLabelView;
 	EditText mValueView;
 	
@@ -24,6 +25,7 @@ public class EditField extends LinearLayout {
 		super(context);
 		
 		LayoutInflater inflater = LayoutInflater.from(context);
+		mLayoutView = this;
 		mMasterView = inflater.inflate(R.layout.add_new_field, this);
 		
 		mLabelView = (EditText)findViewById(R.id.new_field_label);
@@ -39,7 +41,7 @@ public class EditField extends LinearLayout {
 			
 			@Override
 			public void onClick(View v) {
-				callback.onSave(mMasterView, mLabelView.getText().toString(), mValueView.getText().toString());
+				callback.onSave(mLayoutView, mLabelView.getText().toString(), mValueView.getText().toString());
 			}
 		});
 		
@@ -47,7 +49,15 @@ public class EditField extends LinearLayout {
 			
 			@Override
 			public void onClick(View v) {
-				callback.onClose(mMasterView);
+				callback.onClose(mLayoutView);
+			}
+		});
+		
+		mMasterView.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				callback.onClose(mLayoutView);
 			}
 		});
 	}	

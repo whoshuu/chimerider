@@ -10,10 +10,15 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.chimerider.information.CContactListActivity;
+import com.example.chimerider.information.CUserManager;
+import com.example.chimerider.information.UserInformationActivity;
 import com.example.chimerider.util.MenuBarView;
 import com.example.chimerider.util.MenuBarView.MenuBarViewListener;
 import com.jjoe64.graphview.GraphView;
@@ -26,12 +31,13 @@ public class StatsActivity extends Activity implements TabListener {
 
     private LinearLayout llStats;
     private ListView lvMotorInfo;
+	private static final int CREATE_EDIT_CONTACT_REQUEST = 0;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
-        
+        Button mNewButton = (Button)findViewById(R.id.stat_list_new_contact);
         ((MenuBarView)findViewById(R.id.stats_list_menu_bar)).setClickListener(new MenuBarViewListener() {
 			
 			@Override
@@ -68,6 +74,17 @@ public class StatsActivity extends Activity implements TabListener {
 				return true;
 			}
 		});
+        
+
+
+        
+        mNewButton.setOnClickListener(new OnClickListener() {
+    		
+    		@Override
+    		public void onClick(View v) {
+    			selectUser(CUserManager.getUsers().size());
+    		}
+    	});
         
         //GraphView
         llStats = (LinearLayout) findViewById(R.id.llStats);
@@ -149,6 +166,7 @@ public class StatsActivity extends Activity implements TabListener {
         actionBar.selectTab(tabStats);
         
     }
+    
 
     public void onTabSelected(Tab tab) {
         
@@ -192,6 +210,11 @@ public class StatsActivity extends Activity implements TabListener {
 
 
 
+	public void selectUser(int userPosition) {
+		Intent i = new Intent(getApplicationContext(), UserInformationActivity.class);
+		i.putExtra(UserInformationActivity.CONTACT_OBJECT_INDEX_KEY, userPosition);
+		startActivityForResult(i, CREATE_EDIT_CONTACT_REQUEST);
+	}
 
 
     @Override
