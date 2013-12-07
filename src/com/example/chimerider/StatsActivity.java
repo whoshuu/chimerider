@@ -13,6 +13,9 @@ import android.view.Menu;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import com.example.chimerider.information.CContactListActivity;
+import com.example.chimerider.util.MenuBarView;
+import com.example.chimerider.util.MenuBarView.MenuBarViewListener;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GraphView.GraphViewData;
 import com.jjoe64.graphview.GraphViewSeries.GraphViewSeriesStyle;
@@ -28,6 +31,43 @@ public class StatsActivity extends Activity implements TabListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stats);
+        
+        ((MenuBarView)findViewById(R.id.stats_list_menu_bar)).setClickListener(new MenuBarViewListener() {
+			
+			@Override
+			public void onUserClick() {
+				Intent i = new Intent(getBaseContext(), CContactListActivity.class);
+				startActivity(i);
+				finish();
+			}
+			
+			@Override
+			public void onStatsClick() {
+				return;
+			}
+			
+			@Override
+			public void onMapClick() {
+				Intent i = new Intent(getBaseContext(), MainActivity.class);
+				startActivity(i);
+				finish();
+			}
+			
+			@Override
+			public boolean isUserActive() {
+				return true;
+			}
+			
+			@Override
+			public boolean isStatsActive() {
+				return false;
+			}
+			
+			@Override
+			public boolean isMapActive() {
+				return true;
+			}
+		});
         
         //GraphView
         llStats = (LinearLayout) findViewById(R.id.llStats);
