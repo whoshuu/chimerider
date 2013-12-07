@@ -2,6 +2,7 @@ package com.example.chimerider.information;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.activeandroid.Model;
@@ -61,6 +62,17 @@ public class CUser extends Model implements Serializable {
 
 	@Column(name = "Gender")
 	public int gender = Gender.notavailable.getPosition();
+	
+	@Column(name = "CreatedDate")
+	public Date createdDate;
+
+	public Date getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
+	}
 
 	//temporary fields not saved to db
 	public List<CField> mFields = new ArrayList<CField>();
@@ -92,6 +104,7 @@ public class CUser extends Model implements Serializable {
 
 	public CUser() {
 		super();
+		createdDate = new Date();
 	}
 
 	public String getUserProfileImageBitmapURI() {

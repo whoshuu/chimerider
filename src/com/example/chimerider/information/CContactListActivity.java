@@ -1,5 +1,7 @@
 package com.example.chimerider.information;
 
+import java.text.DateFormat;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +22,6 @@ import android.widget.TextView;
 import com.example.chimerider.MainActivity;
 import com.example.chimerider.R;
 import com.example.chimerider.StatsActivity;
-import com.example.chimerider.information.CUser.Gender;
 import com.example.chimerider.util.MenuBarView;
 import com.example.chimerider.util.MenuBarView.MenuBarViewListener;
 
@@ -108,7 +109,11 @@ public class CContactListActivity extends Activity {
 				CUser user = CUserManager.getUser(arg0);
 				if (user != null) {
 					((TextView)v.findViewById(R.id.contacts_list_adaptor_name)).setText(user.name);
-					((TextView)v.findViewById(R.id.contacts_list_adaptor_sex)).setText(Gender.values()[user.gender].getDescription());
+					if (user.createdDate != null) {
+						DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
+						((TextView)v.findViewById(R.id.contacts_list_adaptor_date_created)).setText(dateFormat.format(user.createdDate));
+					}
+					
 					if(user.getUserProfileImageBitmapURI() != null) {
 						((ImageView)v.findViewById(R.id.ivUserImage)).setImageURI(Uri.parse(user.getUserProfileImageBitmapURI()));
 					}
