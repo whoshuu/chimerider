@@ -53,7 +53,7 @@ public class EditField extends LinearLayout {
 			}
 		});
 		
-		mMasterView.setOnClickListener(new OnClickListener() {
+		(findViewById(R.id.add_new_field_main)).setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {

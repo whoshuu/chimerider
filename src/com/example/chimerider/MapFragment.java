@@ -92,6 +92,21 @@ public class MapFragment extends Fragment {
         });
         super.onResume();
 	}
+	
+	public void hiv() {
+		mapView.getOverlays().remove(mapView.getOverlays().size() - 7);
+		mapView.getOverlays().remove(mapView.getOverlays().size() - 8);
+		mapView.getOverlays().remove(mapView.getOverlays().size() - 9);
+		mapView.getOverlays().add(PathUtil.first(getActivity()));
+		mapView.invalidate();
+	}
+	
+	public void tb() {
+		mapView.getOverlays().remove(mapView.getOverlays().size() - 1);
+		mapView.getOverlays().add(PathUtil.second(getActivity()));
+		mapView.invalidate();
+	}
+	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState){
 		super.onActivityCreated(savedInstanceState);

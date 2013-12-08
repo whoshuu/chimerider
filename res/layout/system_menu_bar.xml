@@ -4,37 +4,38 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
     
+
     <RelativeLayout
-        android:id="@+id/rlMap"
+        android:id="@+id/rlStats"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_weight="1"
         android:background="#FFFFFF"
         >
         <Button
-        android:id="@+id/menubar_map"
-            android:layout_width="28dp"
-            android:layout_height="30dp"
-            android:background="@drawable/btn_tab_states_map"
+        android:id="@+id/menubar_stats"
+            android:layout_width="27dp"
+            android:layout_height="22dp"
+            android:background="@drawable/btn_tab_states_stats"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true">
             
         </Button>
             
     </RelativeLayout>
-
+    
     <RelativeLayout
-        android:id="@+id/rlStats"
+        android:id="@+id/rlMap"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_weight="1"
         android:background="#FFFFFF"
         >
         <Button
-        android:id="@+id/menubar_stats"
-            android:layout_width="37dp"
-            android:layout_height="30dp"
-            android:background="@drawable/btn_tab_states_stats"
+        android:id="@+id/menubar_map"
+            android:layout_width="24dp"
+            android:layout_height="25dp"
+            android:background="@drawable/btn_tab_states_map"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true">
             
@@ -46,14 +47,14 @@
     <RelativeLayout
         android:id="@+id/rlUser"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_weight="1"
         android:background="#FFFFFF"
         >
         <Button
         android:id="@+id/menubar_user"
-            android:layout_width="37dp"
-            android:layout_height="30dp"
+            android:layout_width="30dp"
+            android:layout_height="22dp"
             android:background="@drawable/btn_tab_states_user"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true">

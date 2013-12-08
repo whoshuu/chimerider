@@ -5,28 +5,50 @@
     android:layout_height="match_parent"
     >
 
-    <Button
-        android:id="@+id/contact_list_new_contact" 
-        android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:layout_alignParentTop="true"
-    	android:layout_alignParentRight="true"
-    	android:text="@string/contact_list_new_contact"
-    	android:onClick="createNewContact"
-    	android:background="@drawable/btn_tab_states_map"
-        />
-    
+    <RelativeLayout
+        android:id="@+id/rlcontact_list_new_contact"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="-15dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/header"
+        >
+        
+        <TextView
+            android:text="Patients"
+            android:textColor="#333333"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60dp"
+            ></TextView>
+        
+        <Button
+            android:id="@+id/contact_list_new_contact" 
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="23dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:onClick="createNewContact"
+            android:background="@drawable/new_patient"
+            >
+        </Button>
+    </RelativeLayout>
     <com.example.chimerider.util.MenuBarView
         android:id="@+id/contact_list_menu_bar"
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"
-    	android:layout_below="@id/contact_list_new_contact"
+    	android:layout_below="@id/rlcontact_list_new_contact"
         />
 
     <ImageView
         android:id="@+id/ivPatientsStats"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/contact_list_menu_bar"
