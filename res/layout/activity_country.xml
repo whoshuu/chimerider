@@ -2,11 +2,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".CountryActivity" >
+    
+    <RelativeLayout
+        android:id="@+id/rlstat_list_new_contact"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="-15dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/header"
+        >
+        <TextView
+            android:text="Countries"
+            android:textColor="#333333"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60dp"
+            ></TextView>
+        </RelativeLayout>
 
     <TextView
         android:id="@+id/tvCountry"
@@ -14,6 +31,9 @@
         android:layout_height="wrap_content"
         android:text="AFRICA"
         android:textColor="#CCCCCC" 
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_below="@+id/rlstat_list_new_contact"
         android:textSize="20sp"/>
 
     <ListView
@@ -22,6 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvCountry"
         android:layout_below="@+id/tvCountry"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="25dp" >
     </ListView>
 
