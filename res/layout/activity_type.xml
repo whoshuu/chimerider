@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFFF"
     tools:context=".UserActivity" >
 
     <Button
@@ -16,7 +17,7 @@
         android:layout_alignRight="@+id/etMotorId"
         android:layout_below="@+id/etMotorId"
         android:layout_marginTop="20dp"
-        android:background="#696969"
+        android:background="#333333"
         android:onClick="onRide"
         android:text="Go for a Ride"
         android:textColor="#FFFFFF" />
@@ -52,5 +53,12 @@
         android:layout_marginTop="70dp"
         android:layout_marginLeft="2dp"
         android:background="@drawable/button_background"/>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_above="@+id/imangeButton1"
+        android:src="@drawable/small_logo" />
 
 </RelativeLayout>
