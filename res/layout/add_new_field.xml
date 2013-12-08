@@ -11,10 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#FFFFFFFF" >
-
+        android:background="@android:color/white" >
+        
         <TableLayout
             android:id="@+id/table_component"
+            android:layout_below="@+id/close_add_new_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -27,7 +28,6 @@
                     android:id="@+id/new_field_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:inputType="text"
                     android:minWidth="200dp"
                     android:text="Label"
@@ -40,7 +40,6 @@
                     android:id="@+id/new_field_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:inputType="text"
                     android:minWidth="200dp"
                     android:text="Value"
@@ -59,16 +58,16 @@
                     android:textColor="@android:color/white" />
             </TableRow>
         </TableLayout>
+
+        <Button
+            android:id="@+id/close_add_new_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/table_component"
+            android:background="@android:color/white"
+            android:text="X"
+            android:textColor="@color/black_runner" />
+
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/close_add_new_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/relativeLayout1"
-        android:layout_alignRight="@+id/relativeLayout1"
-        android:background="@android:color/white"
-        android:text="X"
-        android:textColor="@color/black_runner" />
-
 </RelativeLayout>

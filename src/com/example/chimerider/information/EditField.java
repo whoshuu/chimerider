@@ -32,8 +32,8 @@ public class EditField extends LinearLayout {
 		mValueView = (EditText)findViewById(R.id.new_field_value);
 		
 		if(fields != null) {
-			mLabelView.setText(fields.mName);
-			mValueView.setText(fields.mValue);
+			mLabelView.setText(fields.mName == null || fields.mName.length() == 0? "Label" : fields.mName);
+			mValueView.setText(fields.mValue == null || fields.mValue.length() == 0? "Value" : fields.mValue);
 		}
 		
 		Button b = (Button)findViewById(R.id.save_new_field);
