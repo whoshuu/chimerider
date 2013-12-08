@@ -1,48 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-
-    <ImageView
-        android:id="@+id/ivWomen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="35dp"
-        android:layout_toRightOf="@+id/tvCountry"
-        android:src="@drawable/ic_user" />
+    android:layout_height="fill_parent" 
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <TextView
         android:id="@+id/tvCountry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivWomen"
         android:layout_alignParentLeft="true"
-        android:text="TextView" />
-
-    <ImageView
-        android:id="@+id/ivImpact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/tvPopulation"
-        android:src="@drawable/ic_user" />
+        android:layout_marginLeft="0dp"
+        android:text="TextView" 
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/tvMiles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivImpact"
         android:layout_alignParentRight="true"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ff6600" />
 
     <TextView
         android:id="@+id/tvPopulation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivImpact"
-        android:layout_marginLeft="25dp"
-        android:layout_toRightOf="@+id/ivWomen"
-        android:text="TextView" />
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="34dp"
+        android:layout_toLeftOf="@+id/tvMiles"
+        android:text="TextView" 
+        android:textColor="#ff6600"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
