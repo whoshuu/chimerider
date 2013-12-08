@@ -9,7 +9,7 @@ import android.os.CountDownTimer;
 
 public class LaunchActivity extends Activity {
 
-	public int DELTA_TIME = 2000; // 1s
+	public int DELTA_TIME = 5000; // 1s
 	
 	public LaunchActivity() {
 	}
@@ -19,7 +19,7 @@ public class LaunchActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.launch_activity);
 		
-		new CountDownTimer(1000, 10) {
+		new CountDownTimer(2000, 10) {
 			
 			 public void onTick(long millisUntilFinished) {
 			  //here you can have your logic to set text to edittext
