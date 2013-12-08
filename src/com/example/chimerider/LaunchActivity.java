@@ -9,7 +9,7 @@ import android.os.CountDownTimer;
 
 public class LaunchActivity extends Activity {
 
-	public int DELTA_TIME = 1000; // 1s
+	public int DELTA_TIME = 2000; // 1s
 	
 	public LaunchActivity() {
 	}
