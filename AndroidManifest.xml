@@ -50,6 +50,10 @@
         <activity
             android:name="com.example.chimerider.TypeActivity"
             android:label="@string/title_activity_type" >
+        </activity>
+        <activity
+            android:name="com.example.chimerider.LaunchActivity"
+            android:label="@string/title_activity_type" >
                         <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
