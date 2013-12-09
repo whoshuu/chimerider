@@ -19,7 +19,7 @@ public class LaunchActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.launch_activity);
 		
-		new CountDownTimer(1000, 10) {
+		new CountDownTimer(DELTA_TIME, 10) {
 			
 			 public void onTick(long millisUntilFinished) {
 			  //here you can have your logic to set text to edittext
